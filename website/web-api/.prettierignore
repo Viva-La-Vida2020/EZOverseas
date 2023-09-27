@@ -1,0 +1,6 @@
+# Ignore artifacts:
+
+# Ignore github workflow
+.github
+
+# Ignore json config for multi-line list

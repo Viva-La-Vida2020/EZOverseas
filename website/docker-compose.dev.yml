@@ -1,0 +1,52 @@
+version: "3.8"
+
+services:
+  front:
+    build:
+      context: ./web-front
+      dockerfile: Dockerfile
+      target: dev
+    ports:
+      - 3000:3000
+    volumes:
+      - ./web-front:/app
+      - /app/node_modules
+
+  api:
+    build:
+      context: ./web-api
+      dockerfile: Dockerfile
+      target: dev
+    ports:
+      - 5001:5001
+    volumes:
+      - ./web-api:/app
+      - /app/node_modules
+    depends_on:
+      - mysqldb
+
+  mysqldb:
+    image: mysql:5.7.37
+    ports:
+      - 3307:3306 # Expose/map to 3307 to avoid conflict with host's mysqld
+    environment:
+      - MYSQL_ROOT_PASSWORD=p@ssw0rd1
+    volumes:
+      - mysql:/var/lib/mysql
+      - mysql_config:/etc/mysql
+      - ./db-data:/docker-entrypoint-initdb.d
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - 80:80
+    volumes:
+      - ./static:/app/static
+      - ./nginx.dev.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - front
+      - api
+
+volumes:
+  mysql:
+  mysql_config:

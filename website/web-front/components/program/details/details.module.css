@@ -1,0 +1,27 @@
+.readySection {
+  background-color: #fdf7f2;
+  padding: 40px;
+  border-radius: 6px;
+}
+
+.readyList {
+  display: flex;
+}
+
+.programOptions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.takeTest {
+  display: inline-block;
+}
+
+@media only screen and (max-width: 720px) {
+  .programOptions {
+    justify-content: flex-start;
+  }
+}

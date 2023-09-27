@@ -1,0 +1,15 @@
+.sliceTextDiv {
+  position: absolute;
+  z-index: 2;
+  top: 150px;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  padding: 10px;
+}
+
+.sliceImage {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
