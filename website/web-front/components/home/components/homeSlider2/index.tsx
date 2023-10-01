@@ -32,7 +32,7 @@ const Testimonials: React.FC<Prop> = (props) => {
     {
       avatar: `${process.env.NEXT_PUBLIC_URL_PREFIX}/images/slider/Jenny.png`,
       content:
-        "“我父母因为在银行工作，所以想让我也去读会计金融之类的专业，虽然我不想读金融，但是我也不知道有什么专业更适合我，通过适途的导师和测试，我选定了自己心仪的城市规划专业。感谢适途的导师给我打开了新的大门！”",
+        "“我父母因为在银行工作，所以想让我也去读会计金融之类的专业，虽然我不想读金融，但是我也不知道有什么专业更适合我，通过EZO的导师和测试，我选定了自己心仪的城市规划专业。感谢EZO的导师给我打开了新的大门！”",
       name: "JENNY同学",
       result: "测评结果：INFJ",
     },
@@ -48,7 +48,7 @@ const Testimonials: React.FC<Prop> = (props) => {
   return (
     <Box sx={{ pt: 10, pb: 10, backgroundColor: "#f9f9f9" }}>
       <Typography variant="h4" align="center" component="h2">
-        使用了适途服务的同学们都说了啥？
+        使用了EZO服务的同学们都说了啥？
       </Typography>
       <Container>
         <Swiper

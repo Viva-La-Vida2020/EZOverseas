@@ -101,7 +101,15 @@ function MobileNav() {
               <ListItemIcon>
                 <GroupIcon color="primary" />
               </ListItemIcon>
-              <ListItemText primary="一对一解惑" />
+              <ListItemText primary="AI 一对一解惑" />
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding onClick={() => handleRouting("/acceptance-rate")}>
+            <ListItemButton>
+              <ListItemIcon>
+                <GroupIcon color="primary" />
+              </ListItemIcon>
+              <ListItemText primary="录取率评估" />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding onClick={() => handleRouting("/programs")}>
@@ -132,7 +140,7 @@ function MobileNav() {
             <ListItemIcon>
               <InfoIcon color="primary" />
             </ListItemIcon>
-            <ListItemText primary="关于适途" />
+            <ListItemText primary="关于EZO" />
           </ListItemButton>
           <ListItemButton
             href="https://jinshuju.net/f/Q1suVd"

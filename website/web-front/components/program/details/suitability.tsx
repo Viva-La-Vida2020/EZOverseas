@@ -80,7 +80,7 @@ const Suitability: React.FC<Prop> = (props) => {
                 paddingLeft: 10,
               }}
             >
-              还没有做适途测试？
+              还没有做EZO测试？
             </Typography>
             <Box sx={{ display: "flex", justifyContent: "center" }}>
               <Button

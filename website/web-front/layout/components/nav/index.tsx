@@ -62,10 +62,10 @@ function NavBar() {
       <div className={styles.navBarItems}>
         <Image
           onClick={() => router.push("/")}
-          src={`${process.env.NEXT_PUBLIC_URL_PREFIX}/main-logo.png`}
+          src={`${process.env.NEXT_PUBLIC_URL_PREFIX}/main-logo1.png`}
           alt="logo"
-          width={130}
-          height={38}
+          width={100}
+          height={48}
         />
         {screenWidth > 850 ? (
           <ul>
@@ -122,7 +122,17 @@ function NavBar() {
                 variant="text"
                 onClick={() => router.push("/one-on-one")}
               >
-                一对一解惑
+                AI 解惑
+              </Button>
+            </li>
+            <li>
+              <Button
+                color="info"
+                sx={{ color: "#2b2b2b" }}
+                variant="text"
+                onClick={() => router.push("/acceptance-rate")}
+              >
+                录取率评估
               </Button>
             </li>
             <li>
@@ -162,7 +172,7 @@ function NavBar() {
                 variant="text"
                 onClick={() => router.push("/aboutUs")}
               >
-                关于适途
+                关于 EZO
               </Button>
             </li>
             <li>

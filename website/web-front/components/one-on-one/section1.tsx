@@ -60,7 +60,7 @@ const Section1: React.FC = () => {
           }}
         >
           <Typography variant="h4" align="center" gutterBottom component="h3">
-            一对一能解你哪些惑？
+            AI 机器人能解你哪些惑？
           </Typography>
           <div className={styles.section1Subtitle}>
             <Image

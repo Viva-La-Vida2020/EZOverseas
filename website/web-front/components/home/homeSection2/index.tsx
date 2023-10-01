@@ -24,7 +24,7 @@ const HomeSection2: React.FC = () => {
                     超全专业库
                   </Typography>
                   <Typography variant="body1" gutterBottom>
-                    如需进一步了解感兴趣的专业，适途的专业导师库涵盖了全球知名大学各类专业500+位优秀且有亲和力的学长学姐，乐于用自己的亲身经历，并结合同学的个人情况，提供一对一具有针对性的大学专业知识科普。
+                    如需进一步了解感兴趣的专业，EZO的专业导师库涵盖了全球知名大学各类专业500+位优秀且有亲和力的学长学姐，乐于用自己的亲身经历，并结合同学的个人情况，提供一对一具有针对性的大学专业知识科普。
                   </Typography>
                   <Box sx={{ pt: 3, textAlign: "center" }}>
                     <Button
@@ -46,7 +46,7 @@ const HomeSection2: React.FC = () => {
                     院校排名库
                   </Typography>
                   <Typography variant="body1" gutterBottom>
-                    如需进一步了解感兴趣的专业，适途的专业导师库涵盖了全球知名大学各类专业500+位优秀且有亲和力的学长学姐，乐于用自己的亲身经历，并结合同学的个人情况，提供一对一具有针对性的大学专业知识科普。
+                    如需进一步了解感兴趣的专业，EZO的专业导师库涵盖了全球知名大学各类专业500+位优秀且有亲和力的学长学姐，乐于用自己的亲身经历，并结合同学的个人情况，提供一对一具有针对性的大学专业知识科普。
                   </Typography>
                   <Box sx={{ pt: 3, textAlign: "center" }}>
                     <Button

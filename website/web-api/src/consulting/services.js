@@ -79,7 +79,7 @@ class ConsultingService {
     // Send email before saing to db
     // TODO templatize and modularize
     const html = `<div style='width: 100%; padding-top: 30px;text-align: center;'>
-    <h2>适途咨询 - 新用户导师咨询请求</h2>
+    <h2>EZO咨询 - 新用户导师咨询请求</h2>
         姓名:${data.fullName}<br>
         用户ID:${data.customerId}<br>
         年龄:${data.age}<br>
@@ -93,7 +93,7 @@ class ConsultingService {
     let info = await transporter.sendMail({
       from: "contact@suitntie.cn", // sender address
       to: "contact@suitntie.cn", // list of receivers
-      subject: "适途咨询 - 新用户咨询请求", // Subject line
+      subject: "EZO咨询 - 新用户咨询请求", // Subject line
       text: html, // plain text body
       html, // html body
     });

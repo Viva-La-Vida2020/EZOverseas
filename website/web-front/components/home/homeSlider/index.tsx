@@ -45,12 +45,12 @@ const TopSlider: React.FC = () => {
     {
       id: 2,
       image: "/slider/home-slider-2.jpg",
-      title: "让专业的人解决你对专业的困惑",
-      content: "来自世界各国各校的学长学姐一对一在线解惑",
+      title: "让 AI 机器人 解决你对专业的困惑",
+      content: "用最先进的 AI 机器人一对一在线解惑",
       link: "/one-on-one",
       index: 2,
       type: "home",
-      button: "匹配学长学姐",
+      button: "与 AI机器人 进行沟通",
     },
     {
       id: 3,
@@ -61,6 +61,16 @@ const TopSlider: React.FC = () => {
       index: 3,
       type: "home",
       button: "开始探索",
+    },
+    {
+      id: 4,
+      image: "/slider/home-slider-2.jpg",
+      title: "评估对心仪院校的录取率",
+      content: "获取目标专业院校的成功率",
+      link: "/acceptance-rate",
+      index: 4,
+      type: "home",
+      button: "开始评估",
     },
   ];
 
