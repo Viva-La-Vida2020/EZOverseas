@@ -38,7 +38,7 @@ function AccountMenu() {
     <>
       {!currentUser ? (
         <Button size="small" color="primary" onClick={handleClick}>
-          登录 | 注册
+          Log in | Register
         </Button>
       ) : (
         <Box>
@@ -74,10 +74,10 @@ function AccountMenu() {
               sx={{ width: "100%" }}
               onClick={() => router.push("/user-dashboard")}
             >
-              个人中心
+              Profile
             </MenuItem>
             <MenuItem sx={{ width: "100%" }} onClick={handleLogout}>
-              登出
+              Log out
             </MenuItem>
           </Menu>
         </Box>
