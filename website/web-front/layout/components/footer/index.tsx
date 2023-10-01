@@ -20,16 +20,11 @@ const Footer: React.FC = () => {
             <Grid item lg={4} md={4} sm={4} xs={12}>
               <Box sx={{ textAlign: "center" }}>
                 <Typography variant="subtitle2" gutterBottom component="h4">
-                  关于我们
+                  About Us
                 </Typography>
                 <Typography variant="caption" display="block" gutterBottom>
                   <a id="contactFooterLink" href="#">
-                    加入我们
-                  </a>
-                </Typography>
-                <Typography variant="caption" display="block" gutterBottom>
-                  <a id="consultFooterLink" href="#">
-                    导师团队
+                    Join Us
                   </a>
                 </Typography>
               </Box>
@@ -37,21 +32,21 @@ const Footer: React.FC = () => {
             <Grid item lg={4} md={4} sm={4} xs={12}>
               <Box sx={{ textAlign: "center" }}>
                 <Typography variant="subtitle2" gutterBottom component="h4">
-                  服务内容
+                  Our Services
                 </Typography>
                 <Typography variant="caption" display="block" gutterBottom>
                   <a id="aboutFooterLink" href="#">
-                    选专业测试
+                    Major Selection Test
                   </a>
                 </Typography>
                 <Typography variant="caption" display="block" gutterBottom>
                   <a id="contactFooterLink" href="#">
-                    AI 一对一专业科普
+                    AI One-on-One Major Introduction
                   </a>
                 </Typography>
                 <Typography variant="caption" display="block" gutterBottom>
                   <a id="consultFooterLink" href="#">
-                    专业探索
+                    Major Exploration
                   </a>
                 </Typography>
               </Box>
@@ -59,7 +54,7 @@ const Footer: React.FC = () => {
             <Grid item lg={4} md={4} sm={4} xs={12}>
               <Box sx={{ textAlign: "center" }}>
                 <Typography variant="subtitle2" gutterBottom component="h4">
-                  联系我们
+                  Contact Us
                 </Typography>
                 <Typography variant="caption" display="block" gutterBottom>
                   <a id="aboutFooterLink" href="#">
@@ -67,10 +62,7 @@ const Footer: React.FC = () => {
                   </a>
                 </Typography>
                 <Typography variant="caption" display="block" gutterBottom>
-                  <a
-                    id="contactFooterLink"
-                    href="mailto:contact@suitntie.cn"
-                  >
+                  <a id="contactFooterLink" href="mailto:contact@suitntie.cn">
                     ezo@ezo.email
                   </a>
                 </Typography>
@@ -80,6 +72,6 @@ const Footer: React.FC = () => {
         </Box>
       </Container>
     </Box>
-  );
+  );  
 };
 export default Footer;

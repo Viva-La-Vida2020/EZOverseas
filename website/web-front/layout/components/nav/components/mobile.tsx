@@ -66,14 +66,14 @@ function MobileNav() {
               <ListItemIcon>
                 <HomeIcon color="primary" />
               </ListItemIcon>
-              <ListItemText primary="首页" />
+              <ListItemText primary="Home" />
             </ListItemButton>
           </ListItem>
           <ListItemButton onClick={() => handleSubmenu("test")}>
             <ListItemIcon>
               <QuizIcon color="primary" />
             </ListItemIcon>
-            <ListItemText primary="免费测试" />
+            <ListItemText primary="Free test" />
             {visibleSubMenu === "test" ? (
               <ArrowDropUpIcon color="disabled" />
             ) : (
@@ -86,13 +86,13 @@ function MobileNav() {
                 sx={{ pl: 4 }}
                 onClick={() => handleRouting("/tests/dimension-test")}
               >
-                <ListItemText primary="16人格测试" />
+                <ListItemText primary="16 personality tests" />
               </ListItemButton>
               <ListItemButton
                 sx={{ pl: 4 }}
                 onClick={() => handleRouting("/tests/holland-test")}
               >
-                <ListItemText primary="霍兰德职业兴趣测试" />
+                <ListItemText primary="Holland's Occupational Interest Test" />
               </ListItemButton>
             </List>
           </Collapse>
@@ -101,7 +101,7 @@ function MobileNav() {
               <ListItemIcon>
                 <GroupIcon color="primary" />
               </ListItemIcon>
-              <ListItemText primary="AI 一对一解惑" />
+              <ListItemText primary="AI one-on-one clarification" />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding onClick={() => handleRouting("/acceptance-rate")}>
@@ -109,7 +109,7 @@ function MobileNav() {
               <ListItemIcon>
                 <GroupIcon color="primary" />
               </ListItemIcon>
-              <ListItemText primary="录取率评估" />
+              <ListItemText primary="Admission rate evaluation" />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding onClick={() => handleRouting("/programs")}>
@@ -117,30 +117,30 @@ function MobileNav() {
               <ListItemIcon>
                 <SchoolIcon color="primary" />
               </ListItemIcon>
-              <ListItemText primary="专业库" />
+              <ListItemText primary="Professional database" />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding onClick={() => handleRouting("/consult")}>
+          {/* <ListItem disablePadding onClick={() => handleRouting("/consult")}>
             <ListItemButton>
               <ListItemIcon>
                 <ContactPageIcon color="primary" />
               </ListItemIcon>
               <ListItemText primary="导师库" />
             </ListItemButton>
-          </ListItem>
+          </ListItem> */}
           <ListItem disablePadding onClick={() => handleRouting("/ranking")}>
             <ListItemButton>
               <ListItemIcon>
                 <TrendingUpIcon color="primary" />
               </ListItemIcon>
-              <ListItemText primary="排名库" />
+              <ListItemText primary="Ranking database" />
             </ListItemButton>
           </ListItem>
           <ListItemButton onClick={() => handleRouting("/aboutUs")}>
             <ListItemIcon>
               <InfoIcon color="primary" />
             </ListItemIcon>
-            <ListItemText primary="关于EZO" />
+            <ListItemText primary="About EZO" />
           </ListItemButton>
           <ListItemButton
             href="https://jinshuju.net/f/Q1suVd"
@@ -150,7 +150,7 @@ function MobileNav() {
             <ListItemIcon>
               <WorkIcon color="primary" />
             </ListItemIcon>
-            <ListItemText primary="成为导师" />
+            {/* <ListItemText primary="成为导师" /> */}
           </ListItemButton>
         </List>
       </Drawer>
