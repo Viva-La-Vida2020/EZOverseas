@@ -1,40 +1,41 @@
 import { Box, Card, CardContent, Grid, Typography, TextField, Button } from "@mui/material";
 import Image from "next/image";
 import React, { useState } from 'react';
-
-import styles from "./serviceTable.module.css";
 import {
   divDefaultPadding,
   sectionPaddingLeft,
   sectionPaddingRight,
   sectionPaddingTop,
+  sectionPaddingBottom,
 } from "../../helper/constants";
+import styles from "./oneOnOne.module.css";
 
-const Section4: React.FC = () => {
+const ChatBot: React.FC = () => {
   const [messages, setMessages] = useState([
-    { from: '你', text: '你好' },
-    { from: 'AI 助手', text: 'Hello!' }
+    { from: 'You', text: 'Hello' },
+    { from: 'AI assistant', text: 'Hello!' }
   ]);
 
   const [input, setInput] = useState('');
 
   const handleSend = () => {
-    setMessages([...messages, { from: '你', text: input }]);
+    setMessages([...messages, { from: 'You', text: input }]);
     setInput('');
   };
 
   return (
     <Box
-      className={styles.section3}
+      className={styles.chatbot}
       sx={{
-      pt: sectionPaddingTop,
-      pl: sectionPaddingLeft,
-      pr: sectionPaddingRight,
+        pt: 5,
+        pl: sectionPaddingLeft,
+        pr: sectionPaddingRight,
+        pb:5,
     }}>
-      <Typography variant="h4" align="center" gutterBottom component="h4">
-        和 AI 助手聊聊
+      <Typography variant="h5" align="center" gutterBottom component="h5">
+        Chat with the AI assistant.
       </Typography>
-      <Box sx={{ maxHeight: 300, overflow: 'auto' }}>
+      <Box sx={{ maxHeight: 500, overflow: 'auto' }}>
             {messages.map((msg, index) => (
               <Typography key={index} sx={{mb: 1}}>
                 <b>{msg.from}:</b> {msg.text}
@@ -42,10 +43,13 @@ const Section4: React.FC = () => {
             ))}
       </Box>
       <Grid container spacing={1} alignItems="center">
-        <Grid item xs={9}>
+        <Grid item xs={10}>
           <TextField 
-              fullWidth
-              placeholder="请输入您的问题"
+            fullWidth
+            InputProps={{
+              style: {backgroundColor: 'white'}
+            }}
+              placeholder="Please enter your question"
               value={input}
               onChange={e => setInput(e.target.value)}
               sx={{ mt: 2, mb: 1 }}
@@ -53,12 +57,12 @@ const Section4: React.FC = () => {
         </Grid>
 
         <Grid item xs={2}>
-          <Button variant="contained" onClick={handleSend}>
-              提交
+          <Button variant="contained" onClick={handleSend} size="large">
+            submit
           </Button>
         </Grid>
       </Grid>
     </Box>
   );
 };
-export default Section4;
+export default ChatBot;

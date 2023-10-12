@@ -21,6 +21,13 @@
   padding-left: 20px;
 }
 
+.chatbot {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background-color: #fdf7f2;
+  border-radius: 10px;
+}
+
 @media only screen and (max-width: 720px) {
   .topBanner {
     height: 125px;

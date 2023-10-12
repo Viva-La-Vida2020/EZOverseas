@@ -122,7 +122,7 @@ function NavBar() {
                 variant="text"
                 onClick={() => router.push("/one-on-one")}
               >
-                AI demystification
+                AI clarifies
               </Button>
             </li>
             <li>
