@@ -67,7 +67,7 @@ const TopSlider: React.FC = () => {
       image: "/slider/home-slider-2.jpg",
       title: "Evaluating the admission rate of desired universities.",
       content: "Obtaining the success rate of the target professional institution.",
-      link: "/acceptance-rate",
+      link: "/admission-rate",
       index: 4,
       type: "home",
       button: "Start assessment",

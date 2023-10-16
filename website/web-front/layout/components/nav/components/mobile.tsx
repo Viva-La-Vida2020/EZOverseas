@@ -104,7 +104,7 @@ function MobileNav() {
               <ListItemText primary="AI one-on-one clarification" />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding onClick={() => handleRouting("/acceptance-rate")}>
+          <ListItem disablePadding onClick={() => handleRouting("/admission-rate")}>
             <ListItemButton>
               <ListItemIcon>
                 <GroupIcon color="primary" />

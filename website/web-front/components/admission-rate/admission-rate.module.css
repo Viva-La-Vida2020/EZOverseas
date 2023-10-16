@@ -2,7 +2,7 @@
   width: 100%;
   height: 250px;
   display: flex;
-  background-image: url(/images/1-on-1/1on1-BG-Desktop.jpg);
+  background-image: url(/images/images_from_api/library.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   color: #f1f1f1;
@@ -10,11 +10,13 @@
   align-items: center;
 }
 
-.chatbot {
+.evaluation {
+  width: 55%;
   margin-top: 40px;
   margin-bottom: 40px;
   background-color: #fdf7f2;
   border-radius: 10px;
+  padding: 35px;
 }
 
 @media only screen and (max-width: 720px) {

@@ -122,7 +122,7 @@ function NavBar() {
                 variant="text"
                 onClick={() => router.push("/one-on-one")}
               >
-                AI clarifies
+                AI Assistant
               </Button>
             </li>
             <li>
@@ -130,7 +130,7 @@ function NavBar() {
                 color="info"
                 sx={{ color: "#2b2b2b" }}
                 variant="text"
-                onClick={() => router.push("/acceptance-rate")}
+                onClick={() => router.push("/admission-rate")}
               >
                 Admission rate evaluation
               </Button>
