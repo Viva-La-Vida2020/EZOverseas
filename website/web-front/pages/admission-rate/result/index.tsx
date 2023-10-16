@@ -1,5 +1,5 @@
 import { Box, Container, Typography,Paper,Button } from "@mui/material";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
@@ -16,8 +16,29 @@ function AdmissionResult(props: Prop) {
   const screenWidth = useSelector(
     (state: RootState) => state.settings.screenWidth,
   );
+  const evaluationResult = useSelector(
+    (state: RootState) => state.user.evaluationResult,
+  );
+
+
   // generate random number from 50 to 100
   const randomNum = Math.floor(Math.random() * (100 - 50 + 1)) + 50;
+
+  // TODO:  若 evaluationResult 能获取结果，下面的逻辑删掉。
+  const [resData, setResData] = useState(randomNum);
+  useEffect(() => {
+    // 使用fetch发送GET请求
+    fetch('api1')
+      .then((response) => response.json())
+      .then((responseData) => {
+        // 请求成功后，将数据设置到state中
+        setResData(responseData);
+      })
+      .catch((error) => {
+        console.error('请求出错', error);
+      });
+  }, []); // 空数组作为第二个参数，确保该效果只在组件加载时执行一次
+
 
   return (
     <Box>
@@ -29,7 +50,7 @@ function AdmissionResult(props: Prop) {
             align="center"
             color="white"
           >
-            Your acceptance success rate is: {data ? data.title : randomNum+'%'}
+            Your acceptance success rate is: {evaluationResult || resData +'%'} 
           </Typography>
         </Container>
       </Box>

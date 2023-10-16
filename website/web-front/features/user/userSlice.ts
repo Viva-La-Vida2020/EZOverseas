@@ -7,6 +7,7 @@ export interface UserState {
   error: any;
   loading: boolean;
   testResults: any;
+  evaluationResult: number
   programBooking: any;
   signupResponse: any;
   authResponse: any;
@@ -24,6 +25,7 @@ const initialState: UserState = {
   error: null,
   loading: false,
   testResults: null,
+  evaluationResult: 0,
   programBooking: null,
   signupResponse: null,
   authResponse: null,
@@ -102,6 +104,12 @@ export const userSlice = createSlice({
         loading: false,
       };
     },
+    receiveEvaluationResult(state, action) {
+      return {
+        ...state,
+        evaluationResult: action.payload,
+      }
+    },
     receiveProgramBooking(state, action) {
       return {
         ...state,
@@ -165,6 +173,7 @@ export const {
   toggleLoginModal,
   logout,
   updateUserLoading,
+  receiveEvaluationResult,
   receiveTestResults,
   receiveProgramBooking,
   receiveSignupResponse,
