@@ -43,7 +43,8 @@ const EvaluationForm: React.FC = () => {
   // const targetSchools = ['School X', 'School Y', 'School Z']; // 从数据库获取
   // const companyList = ['公司1', '公司2', '公司3', '公司4', '公司5']; // 公司列表
   // const projectCategory = [{ 'International': 1 }, { 'National': 2 }, {'Provincial': 3}, { 'Municipal':4}, { 'School': 5}]
-  const publicationslist = ['T', 'A', 'B', 'C', 'D', 'E']
+  const publicationslist = ['T', 'A', 'B', 'C', 'D', 'E'];
+  const major = ['Engineering', 'Science', 'social science', 'Business']
 
   // TODO:
   const onSubmit = async (data: any) => {
@@ -66,33 +67,33 @@ const EvaluationForm: React.FC = () => {
       unrelatedIntern1: Number(data.unrelatedIntern1) || -1,
       unrelatedIntern2: Number(data.unrelatedIntern2) || -1,
       unrelatedIntern3: Number(data.unrelatedIntern3) || -1,
-      targetSchool: getUniversityCategory(data.targetSchool),
-      targetMajor: 1, //TODO:
-    //   fruits: data.fruits.map((fruit:any) => {
-    //     if (fruit === 'apple') {
-    //       return 3;
-    //     } else if (fruit === 'banana') {
-    //       return 2;
-    //     }
-    //     return 0; // 处理其他情况
-    //   }),
+      targetSchool: handleUniversity(data.targetSchool),
+      targetMajor: handleUniversity(data.targetMajor), //TODO:
     };
-    console.log(convertedData);
+    console.log('convertedData', convertedData);
 
-    // post
-    const response = await fetch('api1', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(convertedData),
-    });
-    if (response.ok) {
-      dispatch(receiveEvaluationResult(response)); // TODO:
-      // 请求成功，可以执行页面导航
-      router.push('/admission-rate/result');
+    try {
+      fetch('http://127.0.0.1:5000/form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(convertedData),
+      })
+        .then(response => response.json())
+        .then(
+          data => {
+            const rate = data['message'];
+            console.log('data', data['message']);
+            dispatch(receiveEvaluationResult(rate)); // TODO:
+            router.push('/admission-rate/result');
+          })
+        .catch(error => console.error('Error fetching data:', error));
+    } catch (error) {
+      console.log(error);
     }
   };
+  
   // TODO: 解耦
   const handleGPA = (val: any, gpaSystem: any) => (val / gpaSystem)
   const handleScore = (ieltsScore:any, toeflScore:any) => {
@@ -124,6 +125,13 @@ const EvaluationForm: React.FC = () => {
 
     return Math.max(ieltsScore, toeflScore)
   }
+  const handleUniversity = (university: string) => {
+      // 移除括号及其内容
+      let result = university.replace(/\(.*?\)/g, '');
+      // 移除空格
+      result = result.replace(/\s+/g, '');
+      return result;
+  };
 
   const handleButtonClick = (menu: string) => {
     router.push(menu);
@@ -139,7 +147,6 @@ const EvaluationForm: React.FC = () => {
           {/*  */}
           <Grid item xs={12}>
             <TextField
-              required
               id="name"
               type="text"
               label="name"
@@ -148,7 +155,7 @@ const EvaluationForm: React.FC = () => {
               error={Boolean(errors.name)}
               // value={name}
               // onChange={(e: any) => setName(e.target.value)}
-              {...register("name", { required: true })}
+              {...register("name")}
             />
           </Grid>
 
@@ -461,10 +468,15 @@ const EvaluationForm: React.FC = () => {
           {/* Target Major */}
           <Grid item xs={12}>
             <FormControl fullWidth required>
-              <TextField
-                label="Target Major"
-                {...register('targetMajor')}
-              />
+              <InputLabel id="targetSchool">Target Major</InputLabel>
+                <Select
+                  label="Target School"
+                  {...register('targetMajor')}
+                >
+                  {major.map(major => (
+                    <MenuItem key={major} value={major}>{major}</MenuItem>
+                  ))}  
+                </Select>
             </FormControl>
           </Grid>
         </Grid>
@@ -476,7 +488,7 @@ const EvaluationForm: React.FC = () => {
           sx={{
             mt: 5,
           }}
-          onClick={() => handleButtonClick("/admission-rate/result")} // TODO: TEST-> DELETE
+          // onClick={() => handleButtonClick("/admission-rate/result")} // TODO: TEST-> DELETE
         >
           Submit
         </Button>
