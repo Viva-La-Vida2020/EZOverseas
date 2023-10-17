@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import { useRouter } from "next/router";
 import styles from "./admission-rate.module.css";
 import { useDispatch, useSelector } from 'react-redux';
-import { receiveEvaluationResult, toggleLoginModal } from "../../features/user/userSlice";
+import { receiveEvaluationResult } from "../../features/user/userSlice";
 import { useForm } from "react-hook-form";
+import { board_universities, companies, getUniversityCategory, universities } from "./mockmock";
 
 
 
@@ -38,10 +39,10 @@ const EvaluationForm: React.FC = () => {
   const [targetSchool, setTargetSchool] = useState('');
   const [targetMajor, setTargetMajor] = useState('');
 
-  const schools = ['School A', 'School B', 'School C']; // 从数据库获取
-  const targetSchools = ['School X', 'School Y', 'School Z']; // 从数据库获取
-  const companyList = ['公司1', '公司2', '公司3', '公司4', '公司5']; // 公司列表
-  const projectCategory = [{ 'International': 1 }, { 'National': 2 }, {'Provincial': 3}, { 'Municipal':4}, { 'School': 5}]
+  // const schools = ['School A', 'School B', 'School C']; // 从数据库获取
+  // const targetSchools = ['School X', 'School Y', 'School Z']; // 从数据库获取
+  // const companyList = ['公司1', '公司2', '公司3', '公司4', '公司5']; // 公司列表
+  // const projectCategory = [{ 'International': 1 }, { 'National': 2 }, {'Provincial': 3}, { 'Municipal':4}, { 'School': 5}]
   const publicationslist = ['T', 'A', 'B', 'C', 'D', 'E']
 
   // TODO:
@@ -50,7 +51,7 @@ const EvaluationForm: React.FC = () => {
       name: data.name,
       gender: Number(data.gender),
       gre: data.gre || -1,
-      university: data.university,
+      university: getUniversityCategory(data.university),
       gpa: handleGPA(data.gpa, data.gpaSystem),
       score: handleScore(data.ieltsScore, data.toeflScore),
       paper1: Number(data.paper1) || -1,
@@ -65,8 +66,8 @@ const EvaluationForm: React.FC = () => {
       unrelatedIntern1: Number(data.unrelatedIntern1) || -1,
       unrelatedIntern2: Number(data.unrelatedIntern2) || -1,
       unrelatedIntern3: Number(data.unrelatedIntern3) || -1,
-      targetSchool: 1,
-      targetMajor: 1,
+      targetSchool: getUniversityCategory(data.targetSchool),
+      targetMajor: 1, //TODO:
     //   fruits: data.fruits.map((fruit:any) => {
     //     if (fruit === 'apple') {
     //       return 3;
@@ -126,6 +127,7 @@ const EvaluationForm: React.FC = () => {
 
   const handleButtonClick = (menu: string) => {
     router.push(menu);
+    dispatch(receiveEvaluationResult(100)); // TODO:
   };
 
   return (
@@ -139,13 +141,13 @@ const EvaluationForm: React.FC = () => {
             <TextField
               required
               id="name"
-              name="name"
               type="text"
               label="name"
               fullWidth
               autoComplete="given-name"
+              error={Boolean(errors.name)}
               // value={name}
-              onChange={(e: any) => setName(e.target.value)}
+              // onChange={(e: any) => setName(e.target.value)}
               {...register("name", { required: true })}
             />
           </Grid>
@@ -160,7 +162,7 @@ const EvaluationForm: React.FC = () => {
                 id="demo-simple-select"
                 // value={gender}
                 label="Gender"
-                onChange={(e: any) => setGender(e.target.value)}
+                // onChange={(e: any) => setGender(e.target.value)}
                 {...register('gender')}
               >
                 <MenuItem value="0">Male</MenuItem>
@@ -176,10 +178,10 @@ const EvaluationForm: React.FC = () => {
               <Select 
                 label="Undergrad School"
                 // value={undergradSchool}
-                onChange={(e: any) => setUndergradSchool(e.target.value)}
+                // onChange={(e: any) => setUndergradSchool(e.target.value)}
                 {...register('university')}
               >
-                {schools.map(school => (
+                {universities.map(school => (
                   <MenuItem key={school} value={school}>{school}</MenuItem>
                 ))}
               </Select>
@@ -192,7 +194,7 @@ const EvaluationForm: React.FC = () => {
               <TextField
                 label="GRE Score"
                 // value={greScore}
-                onChange={(e: any) => setGreScore(e.target.value)}
+                // onChange={(e: any) => setGreScore(e.target.value)}
                 {...register("gre")}
               />
             </FormControl>
@@ -204,7 +206,7 @@ const EvaluationForm: React.FC = () => {
               <TextField
                 label="IELTS Score"
                 // value={ieltsScore}
-                onChange={(e: any) => setIeltsScore(e.target.value)}
+                // onChange={(e: any) => setIeltsScore(e.target.value)}
                 {...register("ieltsScore")}
               />
             </FormControl>
@@ -216,7 +218,7 @@ const EvaluationForm: React.FC = () => {
               <TextField
                 label="TOEFL Score"
                 // value={toeflScore}
-                onChange={(e: any) => setToeflScore(e.target.value)}
+                // onChange={(e: any) => setToeflScore(e.target.value)}
                 {...register("toeflScore")}
               />
             </FormControl>
@@ -231,7 +233,7 @@ const EvaluationForm: React.FC = () => {
                   id="gpaSystem"
                   // value={gpaSystem}
                   label="gpaSystem"
-                onChange={(e: any) => setGpaSystem(e.target.value)}
+                // onChange={(e: any) => setGpaSystem(e.target.value)}
                 {...register('gpaSystem')}
                 >
                   <MenuItem value="4">4</MenuItem>
@@ -246,7 +248,7 @@ const EvaluationForm: React.FC = () => {
               <TextField 
                 label="Undergrad GPA"
                 // value={undergradGPA}
-                onChange={(e: any) => setUndergradGPA(e.target.value)}
+                // onChange={(e: any) => setUndergradGPA(e.target.value)}
                 {...register("gpa")}
               />
             </FormControl>
@@ -260,7 +262,7 @@ const EvaluationForm: React.FC = () => {
                 label="Related Intern1"
                   {...register('relatedIntern1')}
               >
-                {companyList.map(company => (
+                {companies.map(company => (
                     <MenuItem key={company} value='1'>{company}</MenuItem>
                 ))}
                 <MenuItem value="2">Other</MenuItem>
@@ -276,7 +278,7 @@ const EvaluationForm: React.FC = () => {
                 label="Related Intern2"
                 {...register('relatedIntern2')}
               >
-                {companyList.map(company => (
+                {companies.map(company => (
                   <MenuItem key={company} value='1'>{company}</MenuItem>
                 ))}
                 <MenuItem value="2">Other</MenuItem>
@@ -291,7 +293,7 @@ const EvaluationForm: React.FC = () => {
                 label="Related Intern3"
                 {...register('relatedIntern3')}
               >
-                {companyList.map(company => (
+                {companies.map(company => (
                   <MenuItem key={company} value='1'>{company}</MenuItem>
                 ))}
                 <MenuItem value="2">Other</MenuItem>
@@ -308,7 +310,7 @@ const EvaluationForm: React.FC = () => {
                 label="Unrelated Intern1"
                 {...register('unrelatedIntern1')}
               >
-                {companyList.map(company => (
+                {companies.map(company => (
                   <MenuItem key={company} value='1'>{company}</MenuItem>
                 ))}
                 <MenuItem value="2">Other</MenuItem>
@@ -323,7 +325,7 @@ const EvaluationForm: React.FC = () => {
                 label="Unrelated Intern2"
                 {...register('unrelatedIntern2')}
               >
-                {companyList.map(company => (
+                {companies.map(company => (
                   <MenuItem key={company} value='1'>{company}</MenuItem>
                 ))}
                 <MenuItem value="2">Other</MenuItem>
@@ -338,7 +340,7 @@ const EvaluationForm: React.FC = () => {
                 label="Unrelated Intern3"
                 {...register('unrelatedIntern3')}
               >
-                {companyList.map(company => (
+                {companies.map(company => (
                   <MenuItem key={company} value='1'>{company}</MenuItem>
                 ))}
                 <MenuItem value="2">Other</MenuItem>
@@ -400,7 +402,7 @@ const EvaluationForm: React.FC = () => {
           {/* Publications */}
           <Grid item xs={4}>
             <FormControl fullWidth>
-            <InputLabel>Project3</InputLabel>
+            <InputLabel>Paper1</InputLabel>
               <Select 
                 label="paper1"
                 {...register('paper1')}
@@ -414,7 +416,7 @@ const EvaluationForm: React.FC = () => {
           </Grid>
           <Grid item xs={4}>
             <FormControl fullWidth>
-            <InputLabel>Project3</InputLabel>
+            <InputLabel>Paper2</InputLabel>
               <Select 
                 label="paper2"
                 {...register('paper2')}
@@ -428,7 +430,7 @@ const EvaluationForm: React.FC = () => {
           </Grid>
           <Grid item xs={4}>
             <FormControl fullWidth>
-            <InputLabel>Project3</InputLabel>
+            <InputLabel>Paper3</InputLabel>
               <Select 
                 label="paper3"
                 {...register('paper3')}
@@ -441,7 +443,7 @@ const EvaluationForm: React.FC = () => {
             </FormControl>
           </Grid>
 
-          {/*  */}
+          {/* Target School */}
           <Grid item xs={12}>
             <FormControl fullWidth required>
               <InputLabel id="targetSchool">Target School</InputLabel>
@@ -449,14 +451,14 @@ const EvaluationForm: React.FC = () => {
                 label="Target School"
                 {...register('targetSchool')}
               >
-                {targetSchools.map(school => (
+                {board_universities.map(school => (
                   <MenuItem key={school} value={school}>{school}</MenuItem>
                 ))}  
               </Select> 
             </FormControl>
           </Grid>
 
-          {/*  */}
+          {/* Target Major */}
           <Grid item xs={12}>
             <FormControl fullWidth required>
               <TextField

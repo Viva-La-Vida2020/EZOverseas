@@ -50,7 +50,7 @@ function AdmissionResult(props: Prop) {
             align="center"
             color="white"
           >
-            Your acceptance success rate is: {evaluationResult || resData +'%'} 
+            Your acceptance success rate is: {(evaluationResult || resData) +'%'} 
           </Typography>
         </Container>
       </Box>
