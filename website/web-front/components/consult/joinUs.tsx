@@ -34,7 +34,7 @@ const JoinUs: React.FC = () => {
       <Box className={styles.innerDiv}>
         <Box sx={{ p: 2, textAlign: "center" }}>
           <Typography variant="subtitle1">
-            加入适途导师团队
+            加入EZO导师团队
             <br />
             线上获取优厚报酬
             <br />

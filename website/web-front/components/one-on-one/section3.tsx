@@ -21,7 +21,7 @@ const Section3: React.FC = () => {
   return (
     <Box className={styles.section3}>
       <Typography variant="h4" align="center" gutterBottom component="h4">
-        适途一对一解惑流程
+        [EZO] AI 解惑流程
       </Typography>
       <Grid container spacing={2} sx={{ pt: 5, pb: 5 }}>
         <Grid item lg={3} md={3} sm={6} xs={6}>
@@ -52,7 +52,7 @@ const Section3: React.FC = () => {
                 gutterBottom
                 component="p"
               >
-                学生通过适途专业匹测试获取独家个人报告后，主动探索报告中最感兴趣的几个专业，并填写个人信息表。
+                学生通过EZO专业匹测试获取独家个人报告后，主动探索报告中最感兴趣的几个专业，并填写个人信息表。
               </Typography>
             </CardContent>
           </Card>
@@ -85,7 +85,7 @@ const Section3: React.FC = () => {
                 gutterBottom
                 component="p"
               >
-                适途咨询师根据学生信息与学生进一步沟通，挖掘学生更多潜在想法，并根据学生和家长需求安排一对一专业导师
+                EZO咨询师根据学生信息与学生进一步沟通，挖掘学生更多潜在想法，并根据学生和家长需求安排一对一专业导师
               </Typography>
             </CardContent>
           </Card>
@@ -118,7 +118,7 @@ const Section3: React.FC = () => {
                 gutterBottom
                 component="p"
               >
-                专业导师收集适途咨询师提供的学生信息，并根据约定的时间进行正式一对一线上咨询。
+                专业导师收集EZO咨询师提供的学生信息，并根据约定的时间进行正式一对一线上咨询。
               </Typography>
             </CardContent>
           </Card>
@@ -151,7 +151,7 @@ const Section3: React.FC = () => {
                 gutterBottom
                 component="p"
               >
-                适途咨询师对导师和学生以及家长进行回访，根据多方反馈整理数据并提供个性化定制报告。
+                EZO咨询师对导师和学生以及家长进行回访，根据多方反馈整理数据并提供个性化定制报告。
               </Typography>
             </CardContent>
           </Card>

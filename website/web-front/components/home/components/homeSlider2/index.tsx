@@ -25,30 +25,31 @@ const Testimonials: React.FC<Prop> = (props) => {
     {
       avatar: `${process.env.NEXT_PUBLIC_URL_PREFIX}/images/slider/Alex.png`,
       content:
-        "“测试结果真的贼准，作为文科生一直不知道以后该选什么专业，也非常感谢Tim老师的科普。太多干货了，让我在一个小时内知道了英国学市场学到底学啥，毕业以后能干嘛，现在对自己的未来有信心多了！”",
-      name: "ALEX同学",
-      result: "测评结果：ENFP",
+        "“The test results are incredibly accurate! As an arts student, I've always been uncertain about which major to pursue. I'm also very grateful to Tim for his informative session. He provided so much valuable information, helping me understand what studying marketing in the UK entails, and what career paths are available post-graduation. Now, I feel much more confident about my future!”",
+      name: "Student ALEX",
+      result: "Test Result: ENFP",
     },
     {
       avatar: `${process.env.NEXT_PUBLIC_URL_PREFIX}/images/slider/Jenny.png`,
       content:
-        "“我父母因为在银行工作，所以想让我也去读会计金融之类的专业，虽然我不想读金融，但是我也不知道有什么专业更适合我，通过适途的导师和测试，我选定了自己心仪的城市规划专业。感谢适途的导师给我打开了新的大门！”",
-      name: "JENNY同学",
-      result: "测评结果：INFJ",
+        "“My parents work in banking and wanted me to study something related to finance and accounting. Even though I didn't want to pursue finance, I wasn't sure which major would be right for me. Thanks to EZO's mentorship and tests, I've decided to study Urban Planning, a subject I'm truly passionate about. I'm grateful to EZO's mentors for showing me a new direction!”",
+      name: "Student JENNY",
+      result: "Test Result: INFJ",
     },
     {
       avatar: `${process.env.NEXT_PUBLIC_URL_PREFIX}/images/slider/Dan.png`,
       content:
-        "“没想到一个测试可以这么准，我意识到我的逻辑思维能力和空间思维能力是一个学工程很好的优势。给我匹配的Erik导师就是康奈尔机械工程毕业的大牛，给了我很多学术指导和发展方向的规划，我觉得我找到了适合自己的专业了！”",
-      name: "DAN同学",
-      result: "测评结果：INTJ",
+        "“I never thought a test could be so precise. I realized that my logical and spatial thinking abilities are great advantages for studying engineering. The mentor matched to me, Erik, is a top-notch graduate from Cornell's Mechanical Engineering program. He offered substantial academic guidance and helped plan my future direction. I feel I've found the major that's right for me!”",
+      name: "Student DAN",
+      result: "Test Result: INTJ",
     },
   ];
+
 
   return (
     <Box sx={{ pt: 10, pb: 10, backgroundColor: "#f9f9f9" }}>
       <Typography variant="h4" align="center" component="h2">
-        使用了适途服务的同学们都说了啥？
+        What have the students who have used the EZO service said?
       </Typography>
       <Container>
         <Swiper
@@ -94,7 +95,7 @@ const Testimonials: React.FC<Prop> = (props) => {
           variant="contained"
           onClick={() => router.push("/tests/dimension-test")}
         >
-          开始测试
+          Start testing
         </Button>
       </div>
     </Box>

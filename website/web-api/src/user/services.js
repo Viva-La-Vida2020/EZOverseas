@@ -146,7 +146,7 @@ class Client {
 
   static async sendConfirmEmailToUser(email, token) {
     const html = `<div style='width: 100%; padding-top: 30px;text-align: center;'>
-      <h2>适途咨询</h2>
+      <h2>EZO咨询</h2>
       <h3>用户注册 - 验证邮箱</h3>
           <h4>请点击<a href="${process.env.WEB_HOST_URL}/account/auth/email?email=${email}&token=${token}">链接</a>验证</h4>
       </div>`;
@@ -154,7 +154,7 @@ class Client {
     let info = await transporter.sendMail({
       from: "contact@suitntie.cn", // sender address
       to: email, // list of receivers
-      subject: "适途咨询 - 新用户 验证邮箱", // Subject line
+      subject: "EZO咨询 - 新用户 验证邮箱", // Subject line
       text: html, // plain text body
       html, // html body
     });
@@ -324,7 +324,7 @@ class Client {
     // Send email
     // TODO templatize and modularize
     const html = `<div style='width: 100%; padding-top: 30px;text-align: center;'>
-    <h2>适途咨询 - 新用户咨询请求</h2>
+    <h2>EZO咨询 - 新用户咨询请求</h2>
         姓名:${data.fullName}<br>
         手机号:${data.cellphone}<br>
         邮箱:${data.email}<br>
@@ -336,7 +336,7 @@ class Client {
     let info = await transporter.sendMail({
       from: "contact@suitntie.cn", // sender address
       to: "contact@suitntie.cn", // list of receivers
-      subject: "适途咨询 - 新用户咨询请求", // Subject line
+      subject: "EZO咨询 - 新用户咨询请求", // Subject line
       text: html, // plain text body
       html, // html body
     });

@@ -16,7 +16,7 @@ interface ServiceItem {
 const ServiceTable: React.FC = () => {
   const dataList: ServiceItem[] = [
     {
-      category: "适途顾问",
+      category: "EZO顾问",
       showCategory: true,
       rowSpan: 3,
       type: "测试结果评估",
@@ -25,7 +25,7 @@ const ServiceTable: React.FC = () => {
       vip: true,
     },
     {
-      category: "适途顾问",
+      category: "EZO顾问",
       showCategory: false,
       type: "学业背景评估",
       basic: true,
@@ -33,7 +33,7 @@ const ServiceTable: React.FC = () => {
       vip: true,
     },
     {
-      category: "适途顾问",
+      category: "EZO顾问",
       showCategory: false,
       type: "家庭意见评估",
       basic: true,
@@ -41,7 +41,7 @@ const ServiceTable: React.FC = () => {
       vip: true,
     },
     {
-      category: "适途咨询师",
+      category: "EZO咨询师",
       showCategory: true,
       rowSpan: 8,
       type: "兴趣点挖掘",
@@ -50,7 +50,7 @@ const ServiceTable: React.FC = () => {
       vip: true,
     },
     {
-      category: "适途咨询师",
+      category: "EZO咨询师",
       showCategory: false,
       type: "专业匹配沟通",
       basic: false,
@@ -58,7 +58,7 @@ const ServiceTable: React.FC = () => {
       vip: true,
     },
     {
-      category: "适途咨询师",
+      category: "EZO咨询师",
       showCategory: false,
       type: "专业对应行业情况",
       basic: false,
@@ -66,7 +66,7 @@ const ServiceTable: React.FC = () => {
       vip: true,
     },
     {
-      category: "适途咨询师",
+      category: "EZO咨询师",
       showCategory: false,
       type: "专业对口职业分析",
       basic: false,
@@ -74,7 +74,7 @@ const ServiceTable: React.FC = () => {
       vip: true,
     },
     {
-      category: "适途咨询师",
+      category: "EZO咨询师",
       showCategory: false,
       type: "课外活动规划",
       basic: false,
@@ -82,7 +82,7 @@ const ServiceTable: React.FC = () => {
       vip: true,
     },
     {
-      category: "适途咨询师",
+      category: "EZO咨询师",
       showCategory: false,
       type: "选校方案",
       basic: false,
@@ -90,7 +90,7 @@ const ServiceTable: React.FC = () => {
       vip: true,
     },
     {
-      category: "适途咨询师",
+      category: "EZO咨询师",
       showCategory: false,
       type: "留学规划",
       basic: false,
@@ -98,7 +98,7 @@ const ServiceTable: React.FC = () => {
       vip: true,
     },
     {
-      category: "适途咨询师",
+      category: "EZO咨询师",
       showCategory: false,
       type: "私人定制深度报告",
       basic: false,
@@ -106,7 +106,7 @@ const ServiceTable: React.FC = () => {
       vip: true,
     },
     {
-      category: "适途专业导师",
+      category: "EZO专业导师",
       showCategory: true,
       rowSpan: 5,
       type: "深度专业介绍",
@@ -115,7 +115,7 @@ const ServiceTable: React.FC = () => {
       vip: true,
     },
     {
-      category: "适途专业导师",
+      category: "EZO专业导师",
       showCategory: false,
       type: "专业课程概况",
       basic: true,
@@ -123,7 +123,7 @@ const ServiceTable: React.FC = () => {
       vip: true,
     },
     {
-      category: "适途专业导师",
+      category: "EZO专业导师",
       showCategory: false,
       type: "面试经验分享",
       basic: true,
@@ -131,7 +131,7 @@ const ServiceTable: React.FC = () => {
       vip: true,
     },
     {
-      category: "适途专业导师",
+      category: "EZO专业导师",
       showCategory: false,
       type: "大学生活分析",
       basic: true,
@@ -139,7 +139,7 @@ const ServiceTable: React.FC = () => {
       vip: true,
     },
     {
-      category: "适途专业导师",
+      category: "EZO专业导师",
       showCategory: false,
       type: "职场经验介绍",
       basic: true,
@@ -151,7 +151,7 @@ const ServiceTable: React.FC = () => {
   return (
     <Box sx={{ pt: 5, pb: 5 }}>
       <Typography variant="h4" textAlign="center" gutterBottom>
-        适途服务类型
+        EZO服务类型
       </Typography>
       <div className={styles.serviceTableDiv}>
         <div className={styles.tableWrapper}>

@@ -84,7 +84,7 @@ class HollandTestService {
       from: "contact@suitntie.cn", // sender address
       // to: "tim.zhao@suitntie.cn, fangqian@suitntie.cn", // list of receivers
       to: "lyyleo2001@gmail.com",
-      subject: "适途咨询 - 新用户 新用户完成测试", // Subject line
+      subject: "EZO咨询 - 新用户 新用户完成测试", // Subject line
       text: html, // plain text body
       html, // html body
     });

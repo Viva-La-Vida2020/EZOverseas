@@ -21,17 +21,17 @@ const HomeSection2: React.FC = () => {
               <CardContent>
                 <Box sx={{ pl: 5, pr: 5, pt: 3, pb: 3, textAlign: "center" }}>
                   <Typography variant="h5" gutterBottom component="h3">
-                    超全专业库
+                    Comprehensive Program Database
                   </Typography>
                   <Typography variant="body1" gutterBottom>
-                    如需进一步了解感兴趣的专业，适途的专业导师库涵盖了全球知名大学各类专业500+位优秀且有亲和力的学长学姐，乐于用自己的亲身经历，并结合同学的个人情况，提供一对一具有针对性的大学专业知识科普。
+                    If you need to further understand the major you're interested in, EZO's professional tutor database covers 500+ outstanding and friendly senior students from renowned universities worldwide. They are willing to share their personal experiences and provide one-on-one targeted university major knowledge based on the student's individual situation.
                   </Typography>
                   <Box sx={{ pt: 3, textAlign: "center" }}>
                     <Button
                       variant="contained"
                       onClick={() => router.push("/programs")}
                     >
-                      浏览专业
+                      Browse Programs
                     </Button>
                   </Box>
                 </Box>
@@ -43,17 +43,17 @@ const HomeSection2: React.FC = () => {
               <CardContent>
                 <Box sx={{ pl: 5, pr: 5, pt: 3, pb: 3, textAlign: "center" }}>
                   <Typography variant="h5" gutterBottom component="h3">
-                    院校排名库
+                    College Ranking Database
                   </Typography>
                   <Typography variant="body1" gutterBottom>
-                    如需进一步了解感兴趣的专业，适途的专业导师库涵盖了全球知名大学各类专业500+位优秀且有亲和力的学长学姐，乐于用自己的亲身经历，并结合同学的个人情况，提供一对一具有针对性的大学专业知识科普。
+                    If you need to further understand the major you're interested in, EZO's professional tutor database covers 500+ outstanding and friendly senior students from renowned universities worldwide. They are willing to share their personal experiences and provide one-on-one targeted university major knowledge based on the student's individual situation.
                   </Typography>
                   <Box sx={{ pt: 3, textAlign: "center" }}>
                     <Button
                       variant="contained"
                       onClick={() => router.push("/ranking")}
                     >
-                      查询排名
+                      Check Rankings
                     </Button>
                   </Box>
                 </Box>

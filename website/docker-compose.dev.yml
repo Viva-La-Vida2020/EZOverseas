@@ -4,10 +4,10 @@ services:
   front:
     build:
       context: ./web-front
-      dockerfile: Dockerfile
-      target: dev
+      dockerfile: Dockerfile # ./web-front/Dockerfile
+      target: dev # target the dev stage from multi-stage Dockerfile.
     ports:
-      - 3000:3000
+      - 3000:3000 # local:docker
     volumes:
       - ./web-front:/app
       - /app/node_modules

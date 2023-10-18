@@ -26,7 +26,7 @@ const AboutUs: React.FC = () => {
             <Grid item lg={8} md={7} sm={12}>
               <Box sx={{ pl: 5, pt: 3, pr: 5 }}>
                 <Typography variant="h4" sx={{ pb: 5 }}>
-                  为什么叫Suit n&apos;Tie 适途？
+                  为什么叫Suit n&apos;Tie EZO？
                 </Typography>
                 <Typography variant="body1">
                   Suit n&apos;Tie (Suit and Tie的简称)
@@ -72,7 +72,7 @@ const AboutUs: React.FC = () => {
                   我们带着经验与思考，努力尝试着回答这个问题。我们认为比起学校的排名，找到适合自己的专业才是最重要的，因为它将会影响你的一生。而最能给你帮助的人，就是走过你这条路的人，你的学长学姐，你未来期望工作行业里的从业者们。
                 </Typography>
                 <Typography variant="body1">
-                  于是我们成立了适途咨询，汇聚了一帮来自世界各国各校各个专业乐于分享的年轻人，专注解决学弟学妹选专业时产生的困惑。如果你认同我们的价值观，欢迎你有一天也能成为我们的导师，薪火相传。
+                  于是我们成立了EZO咨询，汇聚了一帮来自世界各国各校各个专业乐于分享的年轻人，专注解决学弟学妹选专业时产生的困惑。如果你认同我们的价值观，欢迎你有一天也能成为我们的导师，薪火相传。
                 </Typography>
               </Box>
             </Grid>

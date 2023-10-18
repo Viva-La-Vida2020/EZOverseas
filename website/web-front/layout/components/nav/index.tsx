@@ -62,10 +62,10 @@ function NavBar() {
       <div className={styles.navBarItems}>
         <Image
           onClick={() => router.push("/")}
-          src={`${process.env.NEXT_PUBLIC_URL_PREFIX}/main-logo.png`}
+          src={`${process.env.NEXT_PUBLIC_URL_PREFIX}/main-logo1.png`}
           alt="logo"
-          width={130}
-          height={38}
+          width={100}
+          height={48}
         />
         {screenWidth > 850 ? (
           <ul>
@@ -76,7 +76,7 @@ function NavBar() {
                 sx={{ color: "#2b2b2b" }}
                 onClick={() => router.push("/")}
               >
-                首页
+                Home
               </Button>
             </li>
             <li>
@@ -92,7 +92,7 @@ function NavBar() {
                   setTestAnchorEl(event.currentTarget)
                 }
               >
-                免费测试
+                Free test
               </Button>
               <Menu
                 id="testsMenu"
@@ -105,13 +105,13 @@ function NavBar() {
                   sx={{ width: "100%" }}
                   onClick={() => handleTestMenuClick("/tests/dimension-test")}
                 >
-                  MBTI性格测试
+                  MBTI Personality Test
                 </MenuItem>
                 <MenuItem
                   sx={{ width: "100%" }}
                   onClick={() => handleTestMenuClick("/tests/holland-test")}
                 >
-                  霍兰德职业兴趣测试
+                  The Holland Occupational Interest Test.
                 </MenuItem>
               </Menu>
             </li>
@@ -122,7 +122,17 @@ function NavBar() {
                 variant="text"
                 onClick={() => router.push("/one-on-one")}
               >
-                一对一解惑
+                AI Assistant
+              </Button>
+            </li>
+            <li>
+              <Button
+                color="info"
+                sx={{ color: "#2b2b2b" }}
+                variant="text"
+                onClick={() => router.push("/admission-rate")}
+              >
+                Admission rate evaluation
               </Button>
             </li>
             <li>
@@ -132,10 +142,10 @@ function NavBar() {
                 variant="text"
                 onClick={() => router.push("/programs")}
               >
-                专业库
+                Professional database
               </Button>
             </li>
-            <li>
+            {/* <li>
               <Button
                 color="info"
                 sx={{ color: "#2b2b2b" }}
@@ -144,7 +154,7 @@ function NavBar() {
               >
                 导师库
               </Button>
-            </li>
+            </li> */}
             <li>
               <Button
                 color="info"
@@ -152,7 +162,7 @@ function NavBar() {
                 variant="text"
                 onClick={() => router.push("/ranking")}
               >
-                排名库
+                Ranking database
               </Button>
             </li>
             <li>
@@ -162,10 +172,10 @@ function NavBar() {
                 variant="text"
                 onClick={() => router.push("/aboutUs")}
               >
-                关于适途
+                About EZO
               </Button>
             </li>
-            <li>
+            {/* <li>
               <Button
                 color="info"
                 sx={{ color: "#2b2b2b" }}
@@ -176,7 +186,7 @@ function NavBar() {
               >
                 成为导师
               </Button>
-            </li>
+            </li> */}
             <li>
               <AccountMenu />
             </li>
