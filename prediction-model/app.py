@@ -1,11 +1,11 @@
 from flask import Flask, render_template, request, session, jsonify
+import os
 import openai
-from DataFunction import get_predict_para, get_model, predict_rate
 from flask_cors import CORS
 import secrets
 import string
-from CallGptAPI import *
-from utils import *
+# from CallGptAPI import connect_database
+from utils import get_predict_para, get_model, predict_rate
 
 app = Flask(__name__)
 CORS(app)
@@ -15,7 +15,7 @@ api_key = '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'
 openai.api_key = api_key
 
 # connect to mysql
-cursor = connect_database()
+# cursor = connect_database()
 
 
 def generate_secret_key(length=24):
@@ -53,9 +53,17 @@ def chat():
     question = request.json['question']
     user_id = request.json['user_id']
     session_id = request.json['session_id']
-    context_load = os.path.exists('./storage/' + user_id)
+    context_load = os.path.exists(f'./storage/{user_id}')
     print('context load? ', context_load)
-    print('parameters: ', question, user_id, session_id, )
+    print(
+        'parameters: ',
+        question,
+        user_id,
+        session_id,
+    )
+    # TODO: Please use this format for returning data: $${'message': 'xxx'}$$
+    response = {'message': f'repson:{question}'}
+    return jsonify(response)
     # response = chat_with_gpt(question, user_id, session_id, cursor, context_load, True)
 
     # return response

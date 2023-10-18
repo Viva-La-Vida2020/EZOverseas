@@ -7,7 +7,6 @@ import {
 import styles from "./oneOnOne.module.css";
 import { RootState } from "../../store";
 import { useSelector } from "react-redux";
-// import { Configuration, OpenAIApi } from "openai";
 
 const generateRandom = () =>{
   let num = Math.floor(Math.random() * 1000000) % 1000000;
@@ -26,6 +25,9 @@ const ChatBot: React.FC = () => {
   const [sessionId, setSessionId] = useState(generateRandom());
 
   const handleSend = async () => {
+    if (!input) {
+      return;
+    }
     const response = await requestOpenAIAPI(input);
     setMessages([...messages, { User: input, Bot: response['message'] }]);
     setInput('');
@@ -38,7 +40,7 @@ const ChatBot: React.FC = () => {
       session_id: sessionId,
     };
     try {
-      console.error('start request');
+      console.error('start request',data_request);
       
       const response = await fetch('http://127.0.0.1:5000/chat', {
         method: 'POST',
