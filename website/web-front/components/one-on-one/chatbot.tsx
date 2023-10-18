@@ -1,50 +1,87 @@
 import { Box, Card, CardContent, Grid, Typography, TextField, Button } from "@mui/material";
 import React, { useState } from 'react';
-import axios from 'axios';
 import {
   sectionPaddingLeft,
   sectionPaddingRight,
 } from "../../helper/constants";
 import styles from "./oneOnOne.module.css";
+import { RootState } from "../../store";
+import { useSelector } from "react-redux";
 // import { Configuration, OpenAIApi } from "openai";
 
+const generateRandom = () =>{
+  let num = Math.floor(Math.random() * 1000000) % 1000000;
+  return String(num).padStart(6, '0');
+}
+
 const ChatBot: React.FC = () => {
+  const userInfo = useSelector(
+    (state: RootState) => state.user.userInfo,
+  );
   const [messages, setMessages] = useState([
     { User: 'Hello', Bot: "Hello! I'm Bot" },
   ]);
   const [input, setInput] = useState('');
+  const [userId, setUserId] = useState(userInfo?.id || generateRandom());
+  const [sessionId, setSessionId] = useState(generateRandom());
 
   const handleSend = async () => {
-    // const response = await axios.post('/api/chatbot', { prompt: input }); // TODO:
-    setMessages([...messages, { User: input, Bot: input }]);
+    const response = await requestOpenAIAPI(input);
+    setMessages([...messages, { User: input, Bot: response['message'] }]);
     setInput('');
   };
 
   const requestOpenAIAPI = async (input: string) => {
-    const configuration = new Configuration({ apiKey: process.env.OPENAI_API_KEY });
-    const openai = new OpenAIApi(configuration);
-    // 创建对话
-    const conversation = await openai.conversations.create({});
-
-    // 保存对话ID以便后续使用
-    const conversationId = conversation.id;
-
+    const data_request = {
+      question: input,
+      user_id: userId,
+      session_id: sessionId,
+    };
     try {
-      // 使用对话ID发送消息并获取响应
-      const response = await openai.createChatCompletion({
-        conversationId,
-        messages: input,
-        model: "gpt-3.5-turbo",
+      console.error('start request');
+      
+      const response = await fetch('http://127.0.0.1:5000/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data_request),
       });
-  
-      const botMessage = response.data.choices[0].message;
-      if (botMessage) {
-        return botMessage.content
+      console.error('end request');
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
       }
-    } catch (error: any) {
-      console.log(error.message);
+      console.error('return request');
+      return await response.json();
+    } catch (error) {
+      console.log(error);
     }
   };
+  // const requestOpenAIAPI = async (input: string) => {
+  //   const configuration = new Configuration({ apiKey: process.env.OPENAI_API_KEY });
+  //   const openai = new OpenAIApi(configuration);
+  //   // 创建对话
+  //   const conversation = await openai.conversations.create({});
+
+  //   // 保存对话ID以便后续使用
+  //   const conversationId = conversation.id;
+
+  //   try {
+  //     // 使用对话ID发送消息并获取响应
+  //     const response = await openai.createChatCompletion({
+  //       conversationId,
+  //       messages: input,
+  //       model: "gpt-3.5-turbo",
+  //     });
+  
+  //     const botMessage = response.data.choices[0].message;
+  //     if (botMessage) {
+  //       return botMessage.content
+  //     }
+  //   } catch (error: any) {
+  //     console.log(error.message);
+  //   }
+  // };
 
 
   return (
