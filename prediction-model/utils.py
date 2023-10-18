@@ -39,16 +39,13 @@ def predict_rate(predict_para, target_model):
 
 
 def connect_database():
-    conn = mysql.connect(
-        host='localhost',
-        user='root',
-        password='wojiaoliyiyao123',
-        database='ISY5001'
-    )
+    conn = mysql.connect(host='localhost',
+                         user='root',
+                         password='wojiaoliyiyao123',
+                         database='ISY5001')
 
     cursor = conn.cursor()
     return cursor
-
 
 
 # if __name__ == '__main__':
