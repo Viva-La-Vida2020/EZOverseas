@@ -39,7 +39,35 @@ const universities_10 = ['Others']
 
 const universities = [...universities_1, ...universities_2, ...universities_3, ...universities_4, ...universities_5, ...universities_6, ...universities_7, ...universities_8, ...universities_9, ...universities_10]
 const board_universities = [...universities_6, ...universities_7, ...universities_8, ...universities_9, ...universities_10];
-
+const us_university = [
+    'Massachusetts Institute of Technology (MIT)',
+    'Harvard University',
+    'Stanford University',
+    'University of California, Berkeley (UCB)',
+    'University of Chicago',
+    'University of Pennsylvania',
+    'Cornell University',
+    'California Institute of Technology (Caltech)',
+    'Yale University',
+    'Princeton University',
+    'Columbia University',
+    'Johns Hopkins University',
+    'University of California, Los Angeles (UCLA)',
+    'University of Michigan-Ann Arbor',
+    'New York University (NYU)',
+    'Northwestern University',
+    'Carnegie Mellon University',
+    'Duke University',
+    'University of Texas at Austin',
+    'University of California, San Diego (UCSD)',
+    'University of Washington',
+    'University of Illinois at Urbana-Champaign',
+    'Brown University',
+    'Pennsylvania State University',
+    'Purdue University',
+    'Georgia Institute of Technology',
+    'Boston University'
+];;
 
 
 
@@ -74,4 +102,4 @@ const companies = ['WALMART', 'AMAZONCOM', 'STATE GRID', 'CHINA NATIONAL PETROLE
 
 
 
-export { universities, board_universities, getUniversityCategory, companies };
+export { universities, board_universities, getUniversityCategory, companies, us_university };

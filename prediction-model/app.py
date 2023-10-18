@@ -22,20 +22,12 @@ def hello_world():  # put application's code here
     if request.method == 'GET':
         return render_template('form.html')
     elif request.method == 'POST':
-        print(request.json)
-        Gender = request.json['gender']
-        print(Gender)
         predict_para = get_predict_para(request.json)
-        print(predict_para)
         target_model = get_model(request.json)
-        print(target_model)
+        # print(target_model)  # TODO: DELETE
         rate = predict_rate(predict_para, target_model)
-
         response = {'message': rate}
         return jsonify(response)
-        # rate = PredictRate(res)
-        # session['rate'] = rate
-        # return redirect(url_for('show_rate'))
 
 
 @app.route('/rate')
