@@ -5,7 +5,7 @@ import styles from "./admission-rate.module.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { receiveEvaluationResult } from "../../features/user/userSlice";
 import { useForm } from "react-hook-form";
-import { board_universities, companies, getUniversityCategory, universities } from "./mockmock";
+import { board_universities, companies, getUniversityCategory, universities, us_university } from "./mockmock";
 
 
 
@@ -69,6 +69,7 @@ const EvaluationForm: React.FC = () => {
       unrelatedIntern3: Number(data.unrelatedIntern3) || -1,
       targetSchool: handleUniversity(data.targetSchool),
       targetMajor: handleUniversity(data.targetMajor), //TODO:
+      isUS: handleUS(data.targetSchool),
     };
     console.log('convertedData', convertedData);
 
@@ -132,6 +133,12 @@ const EvaluationForm: React.FC = () => {
       result = result.replace(/\s+/g, '');
       return result;
   };
+  const handleUS = (university: string) => {
+    if (us_university.includes(university)) {
+      return true
+    }
+    return false
+  }
 
   const handleButtonClick = (menu: string) => {
     router.push(menu);
