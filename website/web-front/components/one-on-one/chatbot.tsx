@@ -29,7 +29,7 @@ const ChatBot: React.FC = () => {
       return;
     }
     const response = await requestOpenAIAPI(input);
-    setMessages([...messages, { User: input, Bot: response['message'] }]);
+    setMessages([...messages, { User: input, Bot: response?.['message'] }]);
     setInput('');
   };
 
@@ -49,7 +49,7 @@ const ChatBot: React.FC = () => {
         },
         body: JSON.stringify(data_request),
       });
-      console.error('end request');
+      console.error('end request response', response);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
