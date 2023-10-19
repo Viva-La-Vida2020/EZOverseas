@@ -37,6 +37,7 @@ def detect_intent_texts_with_location(
             request={"session": session, "query_input": query_input}
         )
         intent = response.query_result.intent.display_name
+        print('intent', intent)
         if intent == 'programs_language_requirement':
             response_program = response.query_result.parameters.pb['programs']
             pro_name = MessageToDict(response_program)
@@ -81,7 +82,7 @@ def detect_intent_texts_with_location(
 
 
 def call_gpt(user_id, question, prompt, context_load=True, context_save=True, ):
-    memory_path = os.path.join("./storage", user_id)
+    memory_path = os.path.join(f"./storage{user_id}")
     if context_load:
         # rebuild storage context
         storage_context = StorageContext.from_defaults(persist_dir=memory_path)
