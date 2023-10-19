@@ -41,8 +41,8 @@ def predict_rate(predict_para, target_model):
 def connect_database():
     conn = mysql.connect(host='localhost',
                          user='root',
-                         password='wojiaoliyiyao123',
-                         database='ISY5001')
+                         password='xxx',
+                         database='suitntie')
 
     cursor = conn.cursor()
     return cursor

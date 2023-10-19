@@ -62,11 +62,12 @@ def chat():
         session_id,
     )
     # TODO: Please use this format for returning data: $${'message': 'xxx'}$$
-
-    response = chat_with_gpt(question, user_id, session_id, cursor,
+    print('question', question)
+    result = chat_with_gpt(question, user_id, session_id, cursor,
                              context_load, True)
-
-    response = {'message': f'repson:{response}'}
+    if not result:
+        result = 'error'
+    response = {'message': f'{result}'}
     return jsonify(response)
 
 
