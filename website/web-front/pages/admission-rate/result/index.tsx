@@ -24,20 +24,11 @@ function AdmissionResult(props: Prop) {
   // generate random number from 50 to 100
   const randomNum = Math.floor(Math.random() * (100 - 50 + 1)) + 50;
 
-  // TODO:  若 evaluationResult 能获取结果，下面的逻辑删掉。
-  const [resData, setResData] = useState(randomNum);
+  const [resData, setResData] = useState(evaluationResult);
   useEffect(() => {
-    // 使用fetch发送GET请求
-    fetch('api1')
-      .then((response) => response.json())
-      .then((responseData) => {
-        // 请求成功后，将数据设置到state中
-        setResData(responseData);
-      })
-      .catch((error) => {
-        console.error('请求出错', error);
-      });
-  }, []); // 空数组作为第二个参数，确保该效果只在组件加载时执行一次
+    const result = sessionStorage.getItem('result') || 0;
+    setResData(Number(result));
+  }, []);
 
 
   return (
@@ -50,7 +41,7 @@ function AdmissionResult(props: Prop) {
             align="center"
             color="white"
           >
-            Your acceptance success rate is: {(evaluationResult || resData) +'%'} 
+            Your acceptance success rate is: {(resData || randomNum) +'%'} 
           </Typography>
         </Container>
       </Box>
