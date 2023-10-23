@@ -7,7 +7,10 @@ import { receiveEvaluationResult } from "../../features/user/userSlice";
 import { useForm } from "react-hook-form";
 import { board_universities, companies, getUniversityCategory, target_uni, universities, us_university } from "./mockmock";
 
-
+function generateRandomNumber(range) {
+  const [min, max] = range.split('-').map(Number);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 const EvaluationForm: React.FC = () => {
   const router = useRouter();
@@ -67,7 +70,7 @@ const EvaluationForm: React.FC = () => {
       // unrelatedIntern1: Number(data.unrelatedIntern1) || -1,
       // unrelatedIntern2: Number(data.unrelatedIntern2) || -1,
       // unrelatedIntern3: Number(data.unrelatedIntern3) || -1,
-      target_univ: handleUniversity(data.targetSchool),
+      target_univ: data.targetSchool,
       major: data.targetMajor,
       // targetMajor: handleUniversity(data.targetMajor), //TODO:
       // isUS: handleUS(data.targetSchool),
@@ -102,28 +105,42 @@ const EvaluationForm: React.FC = () => {
     ieltsScore = ieltsScore || -1
     toeflScore = toeflScore || -1
 
-    const toeflMap = {
-      '118-120': 9,
-      '115-117': 8.5,
-      '110-114': 8,
-      '102-109': 7.5,
-      '94-101': 7,
-      '79-93': 6.5, 
-      '60-78': 6,
-      '46-59': 5.5,
-      '35-45': 5,
-      '32-34': 4.5,
-      '0-31': 0,
-      '-1':-1,
+    // const toeflMap = {
+    //   '118-120': 9,
+    //   '115-117': 8.5,
+    //   '110-114': 8,
+    //   '102-109': 7.5,
+    //   '94-101': 7,
+    //   '79-93': 6.5, 
+    //   '60-78': 6,
+    //   '46-59': 5.5,
+    //   '35-45': 5,
+    //   '32-34': 4.5,
+    //   '0-31': 0,
+    //   '-1':-1,
+    // };
+
+    const ieltsMap = {
+      '9': generateRandomNumber('118-120'),
+      '8.5': generateRandomNumber('115-117'),
+      '8': generateRandomNumber('102-109'),
+      '7.5': generateRandomNumber('94-101'),
+      '7': generateRandomNumber('79-93'),
+      '6.5': generateRandomNumber('60-78'),
+      '6': generateRandomNumber('46-59'),
+      '5.5': generateRandomNumber('35-45'),
+      '5': generateRandomNumber('32-34'),
+      '4.5': generateRandomNumber('0-31'),
     };
-  
-    for (let scoreRange in toeflMap) {
-      const [min, max] = scoreRange.split('-').map(Number);
-      if (toeflScore >= min && toeflScore <= max) {
-        toeflScore = toeflMap[scoreRange];
-        break;
-      }
-    }
+
+    ieltsScore = ieltsMap[ieltsScore];
+    // for (let scoreRange in ieltsMap) {
+    //   const [min, max] = scoreRange.split('-').map(Number);
+    //   if (toeflScore >= min && toeflScore <= max) {
+    //     toeflScore = toeflMap[scoreRange];
+    //     break;
+    //   }
+    // }
 
     return Math.max(ieltsScore, toeflScore)
   }
