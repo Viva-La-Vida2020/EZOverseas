@@ -28,9 +28,10 @@ const ChatBot: React.FC = () => {
     if (!input) {
       return;
     }
+    setMessages([...messages, { User: input, Bot: '' }]);
+    setInput('');
     const response = await requestOpenAIAPI(input);
     setMessages([...messages, { User: input, Bot: response?.['message'] }]);
-    setInput('');
   };
 
   const requestOpenAIAPI = async (input: string) => {
