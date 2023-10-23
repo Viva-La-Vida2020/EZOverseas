@@ -11,17 +11,29 @@ import os
 
 
 def get_predict_para(res):
+    # return {
+    #     'research': [int(res['research'])],
+    #     'toefl': [int(res['toefl'])],
+    #     'intern': [res['intern']],
+    #     'greV': [int(res['greV'])],
+    #     'greQ': [int(res['greQ'])],
+    #     'greA': [float(res['greA'])],
+    #     'gpa': [float(res['gpa'])],
+    #     'major': [res['major']],
+    #     'univ': [res['univ']],
+    #     'target_univ': [res['target_univ']],
+    # }
     return {
-        'research': int(res['research']),
-        'toefl': int(res['toefl']),
-        'intern': res['intern'],
-        'greV': int(res['greV']),
-        'greQ': int(res['greQ']),
-        'greA': float(res['greA']),
-        'gpa': float(res['gpa']),
-        'major': res['major'],
-        'univ': res['univ'],
-        'target_univ': res['target_univ'],
+        'research': [1],
+        'toefl': [120],
+        'intern': [3],
+        'greV': [150],
+        'greQ': [150],
+        'greA': [4.0],
+        'gpa': [0.8],
+        'major': ['CS'],
+        'univ': [1],
+        'target_univ': ['Cornell University']
     }
 
 
@@ -39,7 +51,8 @@ def predict_rate(predict_para):
     #     loaded_model = pickle.load(file)
     loaded_model = joblib.load(target_model)
     print('s---------1')
-    X = pd.DataFrame([predict_para])
+    X = pd.DataFrame.from_dict(predict_para).astype('category')
+    # X = pd.DataFrame(predict_para).astype('category')
     print('X', X)
     y_prob = loaded_model.predict_proba(X)[:, 1]
     print('y_prob', y_prob)
