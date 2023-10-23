@@ -32,10 +32,11 @@ def get_form_data():  # put application's code here
     if request.method == 'GET':
         return render_template('form.html')
     elif request.method == 'POST':
+        print('request.json', request.json)
         predict_para = get_predict_para(request.json)
-        target_model = get_model(request.json)
+        # target_model = get_model(request.json)
         # print(target_model)  # TODO: DELETE
-        rate = predict_rate(predict_para, target_model)
+        rate = predict_rate(predict_para)
         response = {'message': rate}
         return jsonify(response)
 
@@ -63,8 +64,8 @@ def chat():
     )
     # TODO: Please use this format for returning data: $${'message': 'xxx'}$$
     print('question', question)
-    result = chat_with_gpt(question, user_id, session_id, cursor,
-                             context_load, True)
+    result = chat_with_gpt(question, user_id, session_id, cursor, context_load,
+                           True)
     if not result:
         result = 'error'
     response = {'message': f'{result}'}

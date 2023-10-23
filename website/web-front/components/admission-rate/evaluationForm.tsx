@@ -5,7 +5,7 @@ import styles from "./admission-rate.module.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { receiveEvaluationResult } from "../../features/user/userSlice";
 import { useForm } from "react-hook-form";
-import { board_universities, companies, getUniversityCategory, universities, us_university } from "./mockmock";
+import { board_universities, companies, getUniversityCategory, target_uni, universities, us_university } from "./mockmock";
 
 
 
@@ -44,32 +44,33 @@ const EvaluationForm: React.FC = () => {
   // const companyList = ['公司1', '公司2', '公司3', '公司4', '公司5']; // 公司列表
   // const projectCategory = [{ 'International': 1 }, { 'National': 2 }, {'Provincial': 3}, { 'Municipal':4}, { 'School': 5}]
   const publicationslist = ['T', 'A', 'B', 'C', 'D', 'E'];
-  const major = ['Engineering', 'Science', 'social science', 'Business']
+  const major = ['BA', 'CS', 'OE', 'EE', 'SD', 'SS'];
 
   // TODO:
   const onSubmit = async (data: any) => {
     const convertedData = {
       name: data.name,
       gender: Number(data.gender),
-      gre: data.gre || -1,
-      university: getUniversityCategory(data.university),
+      // gre: data.gre || -1,
+      univ: getUniversityCategory(data.university),
+      greV: data.greV || -1,
+      greQ: data.greQ || -1,
+      greA: data.greA || -1,
       gpa: handleGPA(data.gpa, data.gpaSystem),
-      score: handleScore(data.ieltsScore, data.toeflScore),
-      paper1: Number(data.paper1) || -1,
-      paper2: Number(data.paper2) || -1,
-      paper3: Number(data.paper3) || -1,
-      project1: Number(data.project1) || -1,
-      project2: Number(data.project2) || -1,
-      project3: Number(data.project3) || -1,
-      relatedIntern1: Number(data.relatedIntern1) || -1,
-      relatedIntern2: Number(data.relatedIntern2) || -1,
-      relatedIntern3: Number(data.relatedIntern3) || -1,
-      unrelatedIntern1: Number(data.unrelatedIntern1) || -1,
-      unrelatedIntern2: Number(data.unrelatedIntern2) || -1,
-      unrelatedIntern3: Number(data.unrelatedIntern3) || -1,
-      targetSchool: handleUniversity(data.targetSchool),
-      targetMajor: handleUniversity(data.targetMajor), //TODO:
-      isUS: handleUS(data.targetSchool),
+      toefl: data.toeflScore,
+      research: (Number(data.paper1) + Number(data.paper2) + Number(data.paper3)) || -1,
+      intern: (Number(data.relatedIntern1) + Number(data.relatedIntern2) + Number(data.relatedIntern3)) || -1,
+
+      // relatedIntern1: Number(data.relatedIntern1) || -1,
+      // relatedIntern2: Number(data.relatedIntern2) || -1,
+      // relatedIntern3: Number(data.relatedIntern3) || -1,
+      // unrelatedIntern1: Number(data.unrelatedIntern1) || -1,
+      // unrelatedIntern2: Number(data.unrelatedIntern2) || -1,
+      // unrelatedIntern3: Number(data.unrelatedIntern3) || -1,
+      target_univ: handleUniversity(data.targetSchool),
+      major: data.targetMajor,
+      // targetMajor: handleUniversity(data.targetMajor), //TODO:
+      // isUS: handleUS(data.targetSchool),
     };
     console.log('convertedData', convertedData);
 
@@ -206,16 +207,36 @@ const EvaluationForm: React.FC = () => {
           <Grid item xs={4}>
             <FormControl fullWidth>
               <TextField
-                label="GRE Score"
+                label="GRE Analytical Writing"
                 // value={greScore}
                 // onChange={(e: any) => setGreScore(e.target.value)}
-                {...register("gre")}
+                {...register("greA")}
+              />
+            </FormControl>
+          </Grid>
+          <Grid item xs={4}>
+            <FormControl fullWidth>
+              <TextField
+                label="GRE Quantitative"
+                // value={greScore}
+                // onChange={(e: any) => setGreScore(e.target.value)}
+                {...register("greQ")}
+              />
+            </FormControl>
+          </Grid>
+          <Grid item xs={4}>
+            <FormControl fullWidth>
+              <TextField
+                label="GRE Verbal"
+                // value={greScore}
+                // onChange={(e: any) => setGreScore(e.target.value)}
+                {...register("greV")}
               />
             </FormControl>
           </Grid>
 
           {/* IELTS Score */}
-          <Grid item xs={4}>
+          <Grid item xs={6}>
             <FormControl fullWidth>
               <TextField
                 label="IELTS Score"
@@ -227,7 +248,7 @@ const EvaluationForm: React.FC = () => {
           </Grid>
 
           {/* TOEFL Score */}
-          <Grid item xs={4}>
+          <Grid item xs={6}>
             <FormControl fullWidth>
               <TextField
                 label="TOEFL Score"
@@ -316,54 +337,7 @@ const EvaluationForm: React.FC = () => {
               </FormControl>
           </Grid>
 
-          {/* Unrelated Internship */}
-          <Grid item xs={4}>
-            <FormControl fullWidth>
-              <InputLabel>Unrelated Intern1</InputLabel>
-              <Select 
-                label="Unrelated Intern1"
-                {...register('unrelatedIntern1')}
-              >
-                {companies.map(company => (
-                  <MenuItem key={company} value='1'>{company}</MenuItem>
-                ))}
-                <MenuItem value="2">Other</MenuItem>
-                <MenuItem value="-1">None</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-          <Grid item xs={4}>
-            <FormControl fullWidth>
-              <InputLabel>Unrelated Intern2</InputLabel>
-              <Select 
-                label="Unrelated Intern2"
-                {...register('unrelatedIntern2')}
-              >
-                {companies.map(company => (
-                  <MenuItem key={company} value='1'>{company}</MenuItem>
-                ))}
-                <MenuItem value="2">Other</MenuItem>
-                <MenuItem value="-1">None</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-          <Grid item xs={4}>
-            <FormControl fullWidth>
-              <InputLabel>Unrelated Intern3</InputLabel>
-              <Select 
-                label="Unrelated Intern3"
-                {...register('unrelatedIntern3')}
-              >
-                {companies.map(company => (
-                  <MenuItem key={company} value='1'>{company}</MenuItem>
-                ))}
-                <MenuItem value="2">Other</MenuItem>
-                <MenuItem value="-1">None</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-
-          {/* Projects */}
+          {/* Projects
           <Grid item xs={4}>
             <FormControl fullWidth>
             <InputLabel>Project1</InputLabel>
@@ -411,7 +385,7 @@ const EvaluationForm: React.FC = () => {
                 <MenuItem value="-1">None</MenuItem>
               </Select>
             </FormControl>
-          </Grid>
+          </Grid> */}
           
           {/* Publications */}
           <Grid item xs={4}>
@@ -465,7 +439,7 @@ const EvaluationForm: React.FC = () => {
                 label="Target School"
                 {...register('targetSchool')}
               >
-                {board_universities.map(school => (
+                {target_uni.map(school => (
                   <MenuItem key={school} value={school}>{school}</MenuItem>
                 ))}  
               </Select> 
