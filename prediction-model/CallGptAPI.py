@@ -69,6 +69,8 @@ def detect_intent_texts_with_location(
             keyword = [univ_name, pro_name]
             prompt = query_entry_criteria(keyword, cursor)
 
+        else:
+            prompt = 'Please answer the question based on your knowledge base.'
         # print(response.query_result.parameters.pb['university']['string_value'])
 
         # print("=" * 20)
@@ -82,7 +84,7 @@ def detect_intent_texts_with_location(
 
 
 def call_gpt(user_id, question, prompt, context_load=True, context_save=True, ):
-    memory_path = os.path.join(f"./storage{user_id}")
+    memory_path = os.path.join(f"./storage/{user_id}")
     if context_load:
         # rebuild storage context
         storage_context = StorageContext.from_defaults(persist_dir=memory_path)
@@ -101,6 +103,7 @@ def call_gpt(user_id, question, prompt, context_load=True, context_save=True, ):
 
     "store session"
     if context_save:
+        index.insert(Document(text=question))
         index.storage_context.persist(persist_dir=memory_path)
         print('save storage context.')
 
@@ -112,7 +115,6 @@ def chat_with_gpt_session(user_id, cursor):
     openai.api_key = api_key
 
     while True:
-        # prompt = input("prompt: ")
         question = input("quesiton: ")
         memory_load = os.path.exists('./storage/' + user_id)
         print('memory load? ', memory_load)
