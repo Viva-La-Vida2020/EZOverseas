@@ -34,10 +34,10 @@ def get_form_data():  # put application's code here
     elif request.method == 'POST':
         print('request.json', request.json)
         predict_para = get_predict_para(request.json)
-        # target_model = get_model(request.json)
-        # print(target_model)  # TODO: DELETE
         rate = predict_rate(predict_para)
+        # print('rate:', 99)
         response = {'message': rate}
+        
         return jsonify(response)
 
 

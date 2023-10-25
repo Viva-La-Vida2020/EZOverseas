@@ -1,6 +1,5 @@
 import pandas as pd
 import joblib
-import pickle
 import pymysql as mysql
 import os
 
@@ -44,19 +43,23 @@ def get_model(data):
 def predict_rate(predict_para):
     current_dir = os.path.dirname(os.path.abspath(__file__))
     parent_dir = os.path.abspath(os.path.join(current_dir, '..'))
-    target_model = parent_dir + '/prediction-model/models/model_lgbm.pkl'  # TODO:
+    target_model = parent_dir + '/prediction-model/models/model_lgbm.pkl'
+    lr_model = parent_dir + '/prediction-model/models/model_lr.pkl'
     print('target_model', target_model)
     # # 加载模型
     # with open(target_model, 'rb') as file:
     #     loaded_model = pickle.load(file)
-    loaded_model = joblib.load(target_model)
+    loaded_model_lgbm = joblib.load(target_model)
+    loaded_model_lr = joblib.load(lr_model)
     print('s---------1')
     X = pd.DataFrame.from_dict(predict_para).astype('category')
     # X = pd.DataFrame(predict_para).astype('category')
     print('X', X)
-    y_prob = loaded_model.predict_proba(X)[:, 1]
+    y_prob = loaded_model_lgbm.predict_proba(X)
     print('y_prob', y_prob)
-    rate = str(round(float(y_prob * 100), 2)) + '%'
+    y_prob_lr = loaded_model_lr.predict_proba(y_prob)[0]
+    print('y_prob_lr', y_prob_lr)
+    rate = str(round(float(y_prob_lr[1] * 100), 2)) + '%'
     return rate
 
 
