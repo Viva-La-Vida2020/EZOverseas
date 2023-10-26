@@ -16,23 +16,23 @@ function AdmissionResult(props: Prop) {
     (state: RootState) => state.settings.screenWidth,
   ); 
   // method1
-  // const { rate } = router.query
-  // console.log('rate', rate);
+  const { rate } = router.query
+  console.log('rate', rate);
   
   // method 2
-  let result = 0;
-  if (typeof window !== 'undefined') {
-    // 可以安全地使用localStorage和sessionStorage
-    result = sessionStorage.getItem('result');
-  }
-  const [resData, setResData] = useState(result);
-  console.log('resData', resData);
-  
-  
-  useEffect(() => {
-    const result = sessionStorage.getItem('result') || 0;
-    setResData(Number(result));
-  });
+  // let result = 0;
+  // if (typeof window !== 'undefined') {
+  //   // 可以安全地使用localStorage和sessionStorage
+  //   result = sessionStorage.getItem('result');
+  // }
+  // const [resData, setResData] = useState(result);
+  // console.log('resData', resData);
+  //
+  //
+  // useEffect(() => {
+  //   const result = sessionStorage.getItem('result') || 0;
+  //   setResData(Number(result));
+  // });
 
 
   return (
@@ -46,9 +46,9 @@ function AdmissionResult(props: Prop) {
             color="white"
           >
             {/* method2 */}
-            Your acceptance success rate is: {resData} % 
+            {/*Your acceptance success rate is: {resData} % */}
             {/* method1 */}
-            {/* Your acceptance success rate is: {rate} % */}
+             Your acceptance success rate is: {rate} %
           </Typography>
         </Container>
       </Box>

@@ -90,12 +90,12 @@ const EvaluationForm: React.FC = () => {
           data => {
             const rate = data['message'];
             // method 2
-            console.log('data', data['message']);
-            dispatch(receiveEvaluationResult(rate));
-            sessionStorage.setItem('result', rate);
-            router.push('/admission-rate/result');
+            // console.log('data', data['message']);
+            // dispatch(receiveEvaluationResult(rate));
+            // sessionStorage.setItem('result', rate);
+            // router.push('/admission-rate/result');
             // method 1
-            // router.push(`/admission-rate/result?rate=${rate}`)
+            router.push(`/admission-rate/result?rate=${rate}`)
           })
         .catch(error => console.error('Error fetching data:', error));
     } catch (error) {

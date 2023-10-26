@@ -10,30 +10,30 @@ import os
 
 
 def get_predict_para(res):
-    # return {
-    #     'research': [int(res['research'])],
-    #     'toefl': [int(res['toefl'])],
-    #     'intern': [res['intern']],
-    #     'greV': [int(res['greV'])],
-    #     'greQ': [int(res['greQ'])],
-    #     'greA': [float(res['greA'])],
-    #     'gpa': [float(res['gpa'])],
-    #     'major': [res['major']],
-    #     'univ': [res['univ']],
-    #     'target_univ': [res['target_univ']],
-    # }
     return {
-        'research': [1],
-        'toefl': [120],
-        'intern': [3],
-        'greV': [150],
-        'greQ': [150],
-        'greA': [4.0],
-        'gpa': [0.8],
-        'major': ['CS'],
-        'univ': [1],
-        'target_univ': ['Cornell University']
+        'research': [int(res['research'])],
+        'toefl': [int(res['toefl'])],
+        'intern': [res['intern']],
+        'greV': [int(res['greV'])],
+        'greQ': [int(res['greQ'])],
+        'greA': [float(res['greA'])],
+        'gpa': [float(res['gpa'])],
+        'major': [res['major']],
+        'univ': [res['univ']],
+        'target_univ': [res['target_univ']],
     }
+    # return {
+    #     'research': [1],
+    #     'toefl': [120],
+    #     'intern': [3],
+    #     'greV': [150],
+    #     'greQ': [150],
+    #     'greA': [4.0],
+    #     'gpa': [0.8],
+    #     'major': ['CS'],
+    #     'univ': [1],
+    #     'target_univ': ['Cornell University']
+    # }
 
 
 def get_model(data):
@@ -66,7 +66,7 @@ def predict_rate(predict_para):
 def connect_database():
     conn = mysql.connect(host='localhost',
                          user='root',
-                         password='pillar2580',
+                         password='Zxy001212',
                          database='suitntie')
 
     cursor = conn.cursor()
