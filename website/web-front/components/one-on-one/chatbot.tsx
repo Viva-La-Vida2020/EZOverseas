@@ -23,14 +23,18 @@ const ChatBot: React.FC = () => {
   const [input, setInput] = useState('');
   const [userId, setUserId] = useState(userInfo?.id || generateRandom());
   const [sessionId, setSessionId] = useState(generateRandom());
+  const [buttonState, setButtonState] = useState(true);
 
   const handleSend = async () => {
     if (!input) {
       return;
     }
+    setMessages([...messages, { User: input, Bot: '' }]);
+    setInput('');
+    setButtonState(false);
     const response = await requestOpenAIAPI(input);
     setMessages([...messages, { User: input, Bot: response?.['message'] }]);
-    setInput('');
+    setButtonState(true);
   };
 
   const requestOpenAIAPI = async (input: string) => {
@@ -139,6 +143,7 @@ const ChatBot: React.FC = () => {
             variant="contained"
             onClick={handleSend}
             size="large"
+            disabled={!buttonState}
           >
             submit
           </Button>

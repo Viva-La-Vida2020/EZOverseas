@@ -11,33 +11,28 @@ interface Prop {
 }
 
 function AdmissionResult(props: Prop) {
-  const { data } = props;
   const router = useRouter();
   const screenWidth = useSelector(
     (state: RootState) => state.settings.screenWidth,
-  );
-  const evaluationResult = useSelector(
-    (state: RootState) => state.user.evaluationResult,
-  );
-
-
-  // generate random number from 50 to 100
-  const randomNum = Math.floor(Math.random() * (100 - 50 + 1)) + 50;
-
-  // TODO:  若 evaluationResult 能获取结果，下面的逻辑删掉。
-  const [resData, setResData] = useState(randomNum);
+  ); 
+  // method1
+  // const { rate } = router.query
+  // console.log('rate', rate);
+  
+  // method 2
+  let result = 0;
+  if (typeof window !== 'undefined') {
+    // 可以安全地使用localStorage和sessionStorage
+    result = sessionStorage.getItem('result');
+  }
+  const [resData, setResData] = useState(result);
+  console.log('resData', resData);
+  
+  
   useEffect(() => {
-    // 使用fetch发送GET请求
-    fetch('api1')
-      .then((response) => response.json())
-      .then((responseData) => {
-        // 请求成功后，将数据设置到state中
-        setResData(responseData);
-      })
-      .catch((error) => {
-        console.error('请求出错', error);
-      });
-  }, []); // 空数组作为第二个参数，确保该效果只在组件加载时执行一次
+    const result = sessionStorage.getItem('result') || 0;
+    setResData(Number(result));
+  });
 
 
   return (
@@ -50,7 +45,10 @@ function AdmissionResult(props: Prop) {
             align="center"
             color="white"
           >
-            Your acceptance success rate is: {(evaluationResult || resData) +'%'} 
+            {/* method2 */}
+            Your acceptance success rate is: {resData} % 
+            {/* method1 */}
+            {/* Your acceptance success rate is: {rate} % */}
           </Typography>
         </Container>
       </Box>

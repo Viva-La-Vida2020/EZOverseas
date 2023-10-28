@@ -2,19 +2,14 @@
 // 能用就行
 // 能用就行
 const getUniversityCategory = (university: string): number => {
-    if (universities_1.includes(university)) return 1;
-    if (universities_2.includes(university)) return 2;
-    if (universities_3.includes(university)) return 3;
-    if (universities_4.includes(university)) return 4;
-    if (universities_5.includes(university)) return 5;
-    if (universities_6.includes(university)) return 6;
-    if (universities_7.includes(university)) return 7;
-    if (universities_8.includes(university)) return 8;
-    if (universities_9.includes(university)) {
-        return 9
+    if (universities_1.includes(university) || universities_6.includes(university)) return 1;
+    if (universities_2.includes(university) || universities_7.includes(university)) return 2;
+    if (universities_3.includes(university) || universities_8.includes(university)) return 3;
+    if (universities_4.includes(university) || universities_9.includes(university)) {
+        return 4
     }
     else {
-        return 10
+        return 5
     }
 }
 
@@ -100,6 +95,62 @@ const companies = ['WALMART', 'AMAZONCOM', 'STATE GRID', 'CHINA NATIONAL PETROLE
     'GREE ELECTRIC APPLIANCES', 'HOLCIM', 'MedipalMEDIPAL HOLDINGS', 'JABIL', 'RANDSTAD', 'STARBUCKS', 'ColesCOLES GROUP', 'CREDIT SUISSE GROUP', 'RWE', 'DSVDSV', 'ABBABB', 'MONDELEZ INTERNATIONAL', 'DANONE', 'UMICORE']
 
 
+    const target_uni = [
+        "Worcester Polytechnic Institute",
+        "Wayne State University",
+        "Virginia Polytechnic Institute and State University",
+        "University of Wisconsin Madison",
+        "University of Washington",
+        "University of Utah",
+        "University of Texas Dallas",
+        "University of Texas Austin",
+        "University of Texas Arlington",
+        "University of Southern California",
+        "University of Pennsylvania",
+        "University of North Carolina Charlotte",
+        "University of North Carolina Chapel Hill",
+        "University of Minnesota Twin Cities",
+        "University of Michigan Ann Arbor",
+        "University of Massachusetts Amherst",
+        "University of Maryland College Park",
+        "University of Illinois Urbana-Champaign",
+        "University of Illinois Chicago",
+        "University of Florida",
+        "University of Colorado Boulder",
+        "University of Cincinnati",
+        "University of California Santa Cruz",
+        "University of California Santa Barbara",
+        "University of California San Diego",
+        "University of California Los Angeles",
+        "University of California Irvine",
+        "University of California Davis",
+        "University of Arizona",
+        "Texas A and M University College Station",
+        "Syracuse University",
+        "SUNY Stony Brook",
+        "SUNY Buffalo",
+        "Stanford University",
+        "Rutgers University New Brunswick/Piscataway",
+        "Purdue University",
+        "Princeton University",
+        "Ohio State University Columbus",
+        "Northwestern University",
+        "Northeastern University",
+        "North Carolina State University",
+        "New York University",
+        "New Jersey Institute of Technology",
+        "Massachusetts Institute of Technology",
+        "Johns Hopkins University",
+        "Harvard University",
+        "Georgia Institute of Technology",
+        "George Mason University",
+        "Cornell University",
+        "Columbia University",
+        "Clemson University",
+        "Carnegie Mellon University",
+        "California Institute of Technology",
+        "Arizona State University"
+    ];
+    
 
-
-export { universities, board_universities, getUniversityCategory, companies, us_university };
+export { universities, board_universities, getUniversityCategory, companies, us_university, target_uni };
