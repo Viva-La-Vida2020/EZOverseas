@@ -59,7 +59,8 @@ def predict_rate(predict_para):
     print('y_prob', y_prob)
     y_prob_lr = loaded_model_lr.predict_proba(y_prob)[0]
     print('y_prob_lr', y_prob_lr)
-    rate = str(round(float(y_prob_lr[1] * 100), 2)) + '%'
+    # rate = str(round(float(y_prob_lr[1] * 100), 2)) + '%'
+    rate = str(round(float(y_prob_lr[1] * 100), 2))
     return rate
 
 
