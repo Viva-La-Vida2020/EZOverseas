@@ -41,17 +41,13 @@ Our team is composed of five young and passionate Chinese students. In this proj
 
 ## SECTION 4 : VIDEO OF SYSTEM MODELLING & USE CASE DEMO
 
-/TODO:
-
-[![Sudoku AI Solver](http://img.youtube.com/vi/-AiYLUjP6o8/0.jpg)](https://youtu.be/-AiYLUjP6o8 "Sudoku AI Solver")
+https://youtu.be/vADeoGBIwN8
 
 ---
 
 ## SECTION 5 : USER GUIDE
 
 `Refer to appendix <Installation & User Guide> in project report at Github Folder: ProjectReport`
-
-
 
 ### To run the frontend system in Docker
 

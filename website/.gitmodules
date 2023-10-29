@@ -1,6 +1,0 @@
-[submodule "web-api"]
-	path = web-api
-	url = git@github.com:suit-n-tie/suitntie-web-v2-api.git
-[submodule "web-front"]
-	path = web-front
-	url = git@github.com:suit-n-tie/suitntie-web-v2-front.git

@@ -1,0 +1,35 @@
+.copyRight {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.qrCodeDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.qrCodeBox {
+  width: 150px;
+  text-align: center;
+  padding-right: 10px;
+}
+
+.qrCodeBox img {
+  margin-bottom: 12px;
+}
+
+.footerDiv {
+  padding: 60px 120px;
+  background-color: #2f4858;
+  color: #ffffff !important;
+}
+
+.footerDiv h4 {
+  margin-bottom: 12px;
+}
+
+@media screen and (max-width: 768px) {
+  .footerDiv {
+    padding: 30px;
+  }
+}

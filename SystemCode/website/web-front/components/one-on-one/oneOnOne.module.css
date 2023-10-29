@@ -1,0 +1,24 @@
+.topBanner {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  background-image: url(/images/1-on-1/1on1-BG-Desktop.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #f1f1f1;
+  text-align: center;
+  align-items: center;
+}
+
+.chatbot {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background-color: #fdf7f2;
+  border-radius: 10px;
+}
+
+@media only screen and (max-width: 720px) {
+  .topBanner {
+    height: 125px;
+  }
+}

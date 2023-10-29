@@ -1,8 +1,0 @@
-# Ignore artifacts:
-.next
-
-# Ignore github workflow
-.github
-
-# Ignore json config for multi-line list
-tsconfig.json

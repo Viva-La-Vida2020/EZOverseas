@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  front:
+    image: suitntie/suitntie-web-v2-front:staging
+    ports:
+      - 3000:3000
+
+  api:
+    image: suitntie/suitntie-web-v2-api:staging
+    ports:
+      - 5001:5001
+    depends_on:
+      - mysqldb
+
+  mysqldb:
+    image: mysql:5.7.37
+    ports:
+      - 3307:3306 # Expose/map to 3307 to avoid conflict with host's mysqld
+    environment:
+      - MYSQL_ROOT_PASSWORD=p@ssw0rd1
+    volumes:
+      - mysql:/var/lib/mysql
+      - mysql_config:/etc/mysql
+      - ./db-data:/docker-entrypoint-initdb.d
+
+volumes:
+  mysql:
+  mysql_config:
