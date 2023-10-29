@@ -60,7 +60,7 @@ const EvaluationForm: React.FC = () => {
       greQ: data.greQ || -1,
       greA: data.greA || -1,
       gpa: handleGPA(data.gpa, data.gpaSystem),
-      toefl: data.toeflScore,
+      toefl: data.toeflScore || -1,
       research: (Number(data.paper1) + Number(data.paper2) + Number(data.paper3)) || -1,
       intern: (Number(data.relatedIntern1) + Number(data.relatedIntern2) + Number(data.relatedIntern3)) || -1,
 
