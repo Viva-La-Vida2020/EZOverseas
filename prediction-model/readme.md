@@ -1,23 +1,25 @@
-## 安装依赖-都用的最新的
+## install packages all these us
 python==3.9
-flask
-joblib
-pymysql
-llama_index
-openai
-google-cloud-dialogflow
+flask==1.1.2
+joblib==1.0.0
+pymysql==1.1.0
+flask-cors == 4.0.0
+openai==0.28.1
+google-cloud-dialogflow==2.7.0
 
 
 # chatbot
-## google-cloud-dialogflow
-设置应用默认凭据前，需确保自己加入某个Google clould 项目中。
-设置应用默认凭据https://cloud.google.com/docs/authentication/provide-credentials-adc?hl=zh-cn#local-dev
-1. 安装并初始化 gcloud CLI。
-2. 创建凭据文件
-3. 将创建的凭据文件路径设置为环境变量
+## Configure google-cloud-dialogflow
+Before you set your app default credentials, make sure you're part of a Google clould project. Set the default credential https://cloud.google.com/docs/authentication/provide-credentials-adc?hl=zh-cn#local-dev for the app
 
-## chatbot本地数据库
-修改 `connect_database（）` 中配置。
+i. Install and initialize the gcloud CLI.
+
+ii. Create a credential file
+
+iii. Set the path of the created credential file to an environment variable
+
+## Configure the local database for the chatbot.
+Modify the configuration in `connect_database()`.
 
 ```shell
 CREATE DATABASE suitntie;

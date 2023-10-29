@@ -1,5 +1,5 @@
-# suitntie-web-v2
-This repo includes `suitntie-web-v2-api` and `suitntie-web-v2-front` as submodules, adds additional docker images(only mysql for now) so we can spin up a fully running service locally with `docker-compose`.
+# EZO-web-v2
+This repo includes `EZO-web-v2-api` and `EZO-web-v2-front` as submodules, adds additional docker images(only mysql for now) so we can spin up a fully running service locally with `docker-compose`.
 
 __TL;DR:__ Jump to __Dev localy__ section
 
@@ -7,7 +7,7 @@ __TL;DR:__ Jump to __Dev localy__ section
 Currently we deploy services by `git pull` of each package, having git repos separately preserves this workflow. We do want a central repo(like this one) to make life easier for dev and deployment in the future.
 
 ### How exactly submodule will work?
-`suitntie-web-v2` tracks commits of all submodules, so each working build of `suitntie-web-v2` is a snapshot/combination of all submodules. This guarantees that only compatible changes of all modules together are taken in.
+`EZO-web-v2` tracks commits of all submodules, so each working build of `EZO-web-v2` is a snapshot/combination of all submodules. This guarantees that only compatible changes of all modules together are taken in.
 
 ### Future deployment workflow?
 TBD
@@ -20,9 +20,9 @@ Yes. If you prefer to run only partial services(i.e use your local mysql), you c
 
 ## Dev localy
 ### How to start containers:
-1. Clone repositories, run: `git clone --recurse-submodules git@github.com:suit-n-tie/suitntie-web-v2.git`
+1. Clone repositories, run: `git clone --recurse-submodules git@github.com:suit-n-tie/EZO-web-v2.git`
 2. Install docker: see https://docs.docker.com/get-docker/
-3. Go to repo root directory(suitntie-web-v2) and start docker images, run: `docker-compose  -f docker-compose.dev.yml up -V -d --build`
+3. Go to repo root directory(EZO-web-v2) and start docker images, run: `docker-compose  -f docker-compose.dev.yml up -V -d --build`
 4. Open browser and check out at: http://localhost
 
 ### How to stop containers:
@@ -32,7 +32,7 @@ I suggest using docker desktop to stop containers and remove mapped volumes(opti
 Go to docker desktop's correspoding container and inspect.
 
 ### How to make changes:
-Just make changes in dorresponding submodule repo: `suitntie-web-v2/web-api` or `suitntie-web-v2/web-front`, changes should be reflected immediately. If not, try restart containers.
+Just make changes in dorresponding submodule repo: `EZO-web-v2/web-api` or `EZO-web-v2/web-front`, changes should be reflected immediately. If not, try restart containers.
 
 ### How to check DB data:
 When start docker containers, it preload datas to DB volume if volume is new. Any changes made to DB will be persisted to volumes. You can also remove docker volumes in docker desktop, so next time it will create new volume.
