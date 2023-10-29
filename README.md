@@ -3,11 +3,11 @@
 
 ### EZOverseas - Q&A and recommendation system for colleges and majors
 
-![Home](./website/static-img/web-home.png)
+![Home](./SystemCode/website/static-img/web-home.png)
 
-<img src="./website/static-img/chat.png" alt="chatbot" style="zoom:25%;" />
+<img src="./SystemCode/website/static-img/chat.png" alt="chatbot" style="zoom:25%;" />
 
-<img src="./website/static-img/evaluation.png" alt="evaluation" style="zoom:25%;" />
+<img src="./SystemCode/website/static-img/evaluation.png" alt="evaluation" style="zoom:25%;" />
 
 
 
