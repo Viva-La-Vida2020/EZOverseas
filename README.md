@@ -35,7 +35,7 @@ Our team is composed of five young and passionate Chinese students. In this proj
 | LIANG ZHU          |           A0285771R           | Full-stack development         | e1221583@u.nus.edu |
 | SHEN KAIYUAN       |           A0285764M           | Model developement             |                    |
 | ZHANG QIYUAN       |           A0285787A           | Model developement             |                    |
-| ZHU XUANYA         |           A0285912X           | Model developement             |                    |
+| ZHU XUANYA         |           A0285912X           | Model developement             | e1221724@u.nus.edu |
 
 
 
