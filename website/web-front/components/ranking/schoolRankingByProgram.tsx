@@ -63,21 +63,21 @@ const SchoolRankingByProgram: React.FC = () => {
 
   const listHeaderData: ListHeaderData[] = [
     {
-      title: "全球排名",
+      title: "Global rankings",
       xs: 3,
       sm: 2,
       md: 2,
       lg: 2,
     },
     {
-      title: "学校名",
+      title: "School name",
       xs: 6,
       sm: 8,
       md: 7,
       lg: 8,
     },
     {
-      title: "地区",
+      title: "Regions",
       xs: 3,
       sm: 2,
       md: 3,
@@ -113,7 +113,7 @@ const SchoolRankingByProgram: React.FC = () => {
           }
           onClick={changePageNumber}
         >
-          {isLoadMoreButtonDisabled ? "已加载全部" : "点击加载更多"}
+          {isLoadMoreButtonDisabled ? "All loaded" : "Click Load more"}
         </Button>
       </Box>
     </Box>

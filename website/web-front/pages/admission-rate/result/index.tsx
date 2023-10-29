@@ -37,8 +37,8 @@ function AdmissionResult(props: Prop) {
 
   return (
     <Box>
-      <Box sx={{ backgroundColor: "#2F4858", p: 0 }}>
-        <Container maxWidth="md">
+      <Box sx={{ backgroundColor: "#2F4858", p: 5 }}>
+        <Container maxWidth="md" >
           <Typography
             variant="h4"
             sx={{ pt: 3, pb: 4 }}
@@ -57,12 +57,11 @@ function AdmissionResult(props: Prop) {
       <Box sx={{ p: 10 }}>
         <Box sx={{ backgroundColor: "#FFFAF6", p: 5, position: "relative" }}>
           <Container maxWidth="md">
-            <Paper elevation={0} sx={{ backgroundColor: "#FFFAF6" }}>
+            <Paper elevation={0} sx={{ backgroundColor: "#FFFAF6", p: 5 }}>
               <Typography
                 variant="body1"
                 sx={{
                   pb: 2,
-                  pr: screenWidth > 1024 ? 40 : screenWidth > 600 ? 35 : 0,
                 }}
               >
                 Have a lot of questions about your major, university life and future work direction? Our AI one-on-one puzzle solving service can provide you with one-on-one guidance.
@@ -73,22 +72,6 @@ function AdmissionResult(props: Prop) {
               </Button>
             </Paper>
           </Container>
-          <Box
-            sx={{
-              position: "absolute",
-              zIndex: 3,
-              top: -30,
-              right: 30,
-            }}
-            hidden={screenWidth > 600 ? false : true}
-          >
-            <Image
-              src={`${process.env.NEXT_PUBLIC_URL_PREFIX}/images/test-page/holland-result-consultants.png`}
-              width={310}
-              height={300}
-              alt="consultants"
-            />
-          </Box>
         </Box>
       </Box>
       

@@ -84,21 +84,21 @@ const ProgramRankingBySchool: React.FC = () => {
 
   const listHeaderData: ListHeaderData[] = [
     {
-      title: "专业",
+      title: "Majors",
       xs: 6,
       sm: 8,
       md: 8,
       lg: 8,
     },
     {
-      title: "全球排名",
+      title: "Global rankings",
       xs: 3,
       sm: 2,
       md: 2,
       lg: 2,
     },
     {
-      title: "来源",
+      title: "Sources",
       xs: 3,
       sm: 2,
       md: 2,
@@ -154,7 +154,7 @@ const ProgramRankingBySchool: React.FC = () => {
                 <Box sx={{ pl: 2, pr: 2 }}>
                   <Box sx={{ display: "flex", alignItems: "center" }}>
                     <Typography variant="body1" color="#555">
-                      全球综合排名:
+                      Global overall ranking:
                     </Typography>
                     <Typography component="div">
                       <Box
@@ -173,7 +173,7 @@ const ProgramRankingBySchool: React.FC = () => {
                 <Box sx={{ pl: 2, pr: 2 }}>
                   <Box sx={{ display: "flex", alignItems: "center" }}>
                     <Typography variant="body1" color="#555">
-                      地区:
+                      Regions:
                     </Typography>
                     <Typography component="div">
                       <Box
@@ -225,14 +225,14 @@ const ProgramRankingBySchool: React.FC = () => {
                 }
                 onClick={changePageNumber}
               >
-                {isLoadMoreButtonDisabled ? "已加载全部" : "点击加载更多"}
+                {isLoadMoreButtonDisabled ? "All loaded" : "Click Load more"}
               </Button>
             </Box>
           </>
         ) : (
           <Box>
             <Typography variant="h6" textAlign="center" sx={{ color: "#555" }}>
-              输入感兴趣的学校，查看该学校各专业的排名
+              Enter the school you're interested in to see how it ranks in each subject
             </Typography>
           </Box>
         )}

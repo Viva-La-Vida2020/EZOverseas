@@ -35,13 +35,13 @@ const initialState: RankingState = {
     programFilterValue: {
       id: `defaultProgram`,
       group: "",
-      name: "综合排名",
+      name: "Overall ranking",
       value: "default",
     },
     region: {
       id: "defaultRegion",
       group: "",
-      name: "全部",
+      name: "All",
       value: "all",
     },
   },
@@ -71,13 +71,13 @@ export const RankingSlice = createSlice({
           programFilterValue: {
             id: `defaultProgram`,
             group: "",
-            name: "综合排名",
+            name: "Overall ranking",
             value: "default",
           },
           region: {
             id: "defaultRegion",
             group: "",
-            name: "全部",
+            name: "All",
             value: "all",
           },
         },

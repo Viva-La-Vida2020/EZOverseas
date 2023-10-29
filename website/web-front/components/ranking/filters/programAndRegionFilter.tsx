@@ -47,7 +47,7 @@ const ProgramAndRegionFilter: React.FC = () => {
     const defaultOption: ProgramRankingFilterOption = {
       id: "defaultRegion",
       group: "",
-      name: "全部",
+      name: "All",
       value: "all",
     };
     const popularOptions: ProgramRankingFilterOption[] = options
@@ -55,7 +55,7 @@ const ProgramAndRegionFilter: React.FC = () => {
       .map((r: string, index: number) => {
         return {
           id: `popularRegion${index}`,
-          group: "热门地区",
+          group: "Popular areas",
           name: r,
           value: r,
         };
@@ -65,7 +65,7 @@ const ProgramAndRegionFilter: React.FC = () => {
       .map((r: string, index: number) => {
         return {
           id: `popularRegion${index}`,
-          group: "其他地区",
+          group: "Other regions",
           name: r,
           value: r,
         };
@@ -78,7 +78,7 @@ const ProgramAndRegionFilter: React.FC = () => {
     const defaultOption: ProgramRankingFilterOption = {
       id: `defaultProgram`,
       group: "",
-      name: "综合排名",
+      name: "Overall ranking",
       value: "default",
     };
     let mainOptions: ProgramRankingFilterOption[] = [defaultOption];

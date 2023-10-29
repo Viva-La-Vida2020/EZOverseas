@@ -8,7 +8,7 @@ const Title: React.FC = () => {
     <Box className={styles.topBanner}>
       <Box width={1}>
         <Typography variant="h3" textAlign="center">
-          排名搜索
+          Rank search
         </Typography>
       </Box>
     </Box>

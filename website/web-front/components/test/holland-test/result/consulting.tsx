@@ -41,12 +41,6 @@ function Consulting() {
           }}
           hidden={screenWidth > 600 ? false : true}
         >
-          <Image
-            src={`${process.env.NEXT_PUBLIC_URL_PREFIX}/images/test-page/holland-result-consultants.png`}
-            width={310}
-            height={300}
-            alt="consultants"
-          />
         </Box>
       </Box>
     </Box>
