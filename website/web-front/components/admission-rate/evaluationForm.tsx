@@ -319,7 +319,7 @@ const EvaluationForm: React.FC = () => {
                   {...register('relatedIntern1')}
               >
                 {companies.map(company => (
-                    <MenuItem key={company} value='1'>{company}</MenuItem>
+                    <MenuItem key={company} value={company}>{company}</MenuItem>
                 ))}
                 <MenuItem value="2">Other</MenuItem>
                 <MenuItem value="-1">None</MenuItem>
@@ -335,7 +335,7 @@ const EvaluationForm: React.FC = () => {
                 {...register('relatedIntern2')}
               >
                 {companies.map(company => (
-                  <MenuItem key={company} value='1'>{company}</MenuItem>
+                  <MenuItem key={company} value={company}>{company}</MenuItem>
                 ))}
                 <MenuItem value="2">Other</MenuItem>
                 <MenuItem value="-1">None</MenuItem>
@@ -350,7 +350,7 @@ const EvaluationForm: React.FC = () => {
                 {...register('relatedIntern3')}
               >
                 {companies.map(company => (
-                  <MenuItem key={company} value='1'>{company}</MenuItem>
+                  <MenuItem key={company} value={company}>{company}</MenuItem>
                 ))}
                 <MenuItem value="2">Other</MenuItem>
                 <MenuItem value="-1">None</MenuItem>
