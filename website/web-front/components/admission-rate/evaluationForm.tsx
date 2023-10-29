@@ -191,7 +191,7 @@ const EvaluationForm: React.FC = () => {
           
           {/* Gender */}
           <Grid item xs={12}>
-            <FormControl fullWidth required>
+            <FormControl fullWidth>
               <InputLabel id="gender">Gender</InputLabel>
               <Select
                 labelId="gender"
@@ -272,6 +272,7 @@ const EvaluationForm: React.FC = () => {
           <Grid item xs={6}>
             <FormControl fullWidth>
               <TextField
+                required
                 label="TOEFL Score"
                 // value={toeflScore}
                 // onChange={(e: any) => setToeflScore(e.target.value)}
