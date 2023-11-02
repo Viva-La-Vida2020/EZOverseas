@@ -42,7 +42,7 @@ Our team is composed of five young and passionate Chinese students. In this proj
 ## SECTION 4 : VIDEO OF SYSTEM MODELLING & USE CASE DEMO
 
 https://youtu.be/vADeoGBIwN8
-
+https://www.youtube.com/watch?v=LsC3oUfOusk
 ---
 
 ## SECTION 5 : USER GUIDE
